@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SqlSugarCore" Version="5.1.4.170" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Hospital.Fw.Domain\Hospital.Fw.Domain.csproj" />
+	</ItemGroup>
+</Project>
