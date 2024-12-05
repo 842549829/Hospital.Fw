@@ -11,4 +11,7 @@
 		<ProjectReference Include="..\Hospital.Fw.Domain.Shared\Hospital.Fw.Domain.Shared.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="SqlSugarCore" Version="5.1.4.170" />
+	</ItemGroup>
 </Project>

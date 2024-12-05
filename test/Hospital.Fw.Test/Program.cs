@@ -6,7 +6,6 @@ using Hospital.Fw.BackgroundJobs.Abstractions;
 using Hospital.Fw.BackgroundJobs.Implementations;
 using Hospital.Fw.Domain.Shared.Core;
 using Hospital.Fw.HttpApi.Autofac;
-using Hospital.Fw.HttpApi.Filter;
 using Hospital.Fw.HttpApi.Middleware;
 using Hospital.Fw.Test.SqlSugarCore;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -54,7 +53,7 @@ try
     // 替换控制器的替换规则(目的:使用Autofac的特性注入)
     builder.Services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
 
-    builder.Services.AddTransactionFilter();
+    //builder.Services.AddTransactionFilter();
 
     builder.Services.AddAutoMapper(LoadAssemblies.AssembliesStartingWith);
 
