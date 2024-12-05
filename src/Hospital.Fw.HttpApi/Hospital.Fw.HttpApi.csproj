@@ -17,7 +17,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Hospital.Fw.Application\Hospital.Fw.Application.csproj" />
-		<ProjectReference Include="..\Hospital.Fw.SqlSugarCore\Hospital.Fw.SqlSugarCore.csproj" />
 	</ItemGroup>
 
 </Project>
