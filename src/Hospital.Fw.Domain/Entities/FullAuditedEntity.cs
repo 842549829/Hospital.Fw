@@ -12,24 +12,24 @@ public abstract class FullAuditedEntity<TKey> : AuditedEntity<TKey>, IMayHaveDel
     /// <summary>
     /// 删除人Id
     /// </summary>
-    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength32, ColumnDescription = "删除人Id")]
-    public string? DeletionId { get; set; }
+    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength32, IsNullable = true, ColumnDescription = "删除人Id")]
+    public virtual string? DeletionId { get; set; }
 
     /// <summary>
     /// 删除时间
     /// </summary>
-    [SugarColumn(ColumnDescription = "删除时间")]
-    public DateTime? DeletionTime { get; set; }
+    [SugarColumn(IsNullable = true, ColumnDescription = "删除时间")]
+    public virtual DateTime? DeletionTime { get; set; }
 
     /// <summary>
     /// 删除人
     /// </summary>
-    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength64, ColumnDescription = "删除人")]
-    public string? DeletionName { get; set; }
+    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength64, IsNullable = true, ColumnDescription = "删除人")]
+    public virtual string? DeletionName { get; set; }
 
     /// <summary>
     /// 是否删除
     /// </summary>
-    [SugarColumn(ColumnDataType = SqlSugarCoreDbConst.SugarColumnBool, ColumnDescription = "是否删除")]
-    public bool IsDeleted { get; set; } 
+    [SugarColumn(IsNullable = false, ColumnDescription = "是否删除")]
+    public virtual bool IsDeleted { get; set; }
 }

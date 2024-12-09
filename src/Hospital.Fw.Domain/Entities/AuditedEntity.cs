@@ -12,18 +12,18 @@ public abstract class AuditedEntity<TKey> : CreationAudited<TKey>, IMayHaveLastM
     /// <summary>
     /// 最后修改人Id
     /// </summary>
-    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength32, ColumnDescription = "最后修改人Id")]
-    public string? LastModificationId { get; set; }
+    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength32, IsNullable = true, ColumnDescription = "最后修改人Id")]
+    public virtual string? LastModificationId { get; set; }
 
     /// <summary>
     /// 最后修改人
     /// </summary>
-    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength64, ColumnDescription = "最后修改人")]
-    public string? LastModificationName { get; set; }
+    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength64, IsNullable = true, ColumnDescription = "最后修改人")]
+    public virtual string? LastModificationName { get; set; }
 
     /// <summary>
     /// 最后修改时间
     /// </summary>
-    [SugarColumn(ColumnDescription = "最后修改时间")]
-    public DateTime? LastModificationTime { get; set; }
+    [SugarColumn(IsNullable = true, ColumnDescription = "最后修改时间")]
+    public virtual DateTime? LastModificationTime { get; set; }
 }

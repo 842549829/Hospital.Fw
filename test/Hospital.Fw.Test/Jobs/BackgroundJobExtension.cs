@@ -1,5 +1,4 @@
 ﻿using Hospital.Fw.BackgroundJobs.Abstractions;
-using Hospital.Fw.Test.Jobs.Eto;
 using Hospital.Fw.Test.Jobs.Tasks;
 
 namespace Hospital.Fw.Test.Jobs;

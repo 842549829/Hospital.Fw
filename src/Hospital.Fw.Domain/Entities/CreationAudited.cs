@@ -12,24 +12,24 @@ public abstract class CreationAudited<TKey> : Entity<TKey>, IHasCreator
     /// <summary>
     /// 创建时间
     /// </summary>
-    [SugarColumn(ColumnDescription = "创建时间")]
-    public DateTime CreateTime { get; set; } = DateTime.Now;
+    [SugarColumn(IsNullable = false, ColumnDescription = "创建时间")]
+    public virtual DateTime CreateTime { get; set; } = DateTime.Now;
 
     /// <summary>
     /// 创建人
     /// </summary>
-    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength64, ColumnDescription = "创建人")]
-    public string? CreatorName { get; set; }
+    [SugarColumn(IsNullable = true, Length = SqlSugarCoreDbConst.SugarColumnLength64, ColumnDescription = "创建人")]
+    public virtual string? CreatorName { get; set; }
 
     /// <summary>
     /// 创建人Id
     /// </summary>
-    [SugarColumn(Length = SqlSugarCoreDbConst.SugarColumnLength32, ColumnDescription = "创建人Id")]
-    public string? CreatorId { get; set; }
+    [SugarColumn(IsNullable = true, Length = SqlSugarCoreDbConst.SugarColumnLength32, ColumnDescription = "创建人Id")]
+    public virtual string? CreatorId { get; set; }
 
     /// <summary>
     /// 是否启用
     /// </summary>
-    [SugarColumn(ColumnDataType = SqlSugarCoreDbConst.SugarColumnBool, ColumnDescription = "是否启用")]
-    public bool IsEnabled { get; set; } = true!;
+    [SugarColumn(IsNullable = false, ColumnDescription = "是否启用")]
+    public virtual bool IsEnabled { get; set; } = true;
 }
