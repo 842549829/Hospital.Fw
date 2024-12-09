@@ -4,9 +4,11 @@ using Hospital.Fw.Application;
 using Hospital.Fw.BackgroundJobs;
 using Hospital.Fw.BackgroundJobs.Abstractions;
 using Hospital.Fw.BackgroundJobs.Implementations;
+using Hospital.Fw.Domain.Shared.Constant;
 using Hospital.Fw.Domain.Shared.Core;
 using Hospital.Fw.HttpApi.Autofac;
 using Hospital.Fw.HttpApi.Middleware;
+using Hospital.Fw.Test.Jobs;
 using Hospital.Fw.Test.SqlSugarCore;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -14,6 +16,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
+using SqlSugar;
 using System.Reflection;
 
 Log.Logger = new LoggerConfiguration()
@@ -93,6 +96,7 @@ try
 
     // 添加后台任务服务
     builder.Services.AddBackgroundJobs(builder.Configuration);
+    builder.Services.AddBackgroundJobTasks();
 
     var app = builder.Build();
 
@@ -106,6 +110,11 @@ try
     {
         app.UseSwagger();
         app.UseSwaggerUI();
+
+        using var scope = app.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<ISqlSugarClient>();
+        var jobDb = db.AsTenant().GetConnection(SqlSugarCoreDbConst.Job);
+        jobDb.CodeFirst.InitTables(typeof(JobTask));
     }
 
     app.MapControllers();

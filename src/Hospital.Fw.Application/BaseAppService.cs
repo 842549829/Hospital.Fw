@@ -6,5 +6,5 @@ namespace Hospital.Fw.Application;
 public abstract class BaseAppService : IBaseAppService
 {
     [Autowired]
-    public IServiceProvider ServiceProvider { get; set; } = default!;
+    public required IServiceProvider ServiceProvider { get; set; }
 }
