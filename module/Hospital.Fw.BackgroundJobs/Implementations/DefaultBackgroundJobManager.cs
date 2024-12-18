@@ -23,7 +23,7 @@ public class DefaultBackgroundJobManager(
         var currentTime = DateTime.Now;
         var jobInfo = new BackgroundJobInfo
         {
-            Id = jonId ?? Guid.NewGuid().ToString(),
+            Id = jonId ?? Guid.NewGuid().ToString("N"),
             JobName = jobName,
             JobArgs = Serializer.Serialize(args),
             Priority = priority,
