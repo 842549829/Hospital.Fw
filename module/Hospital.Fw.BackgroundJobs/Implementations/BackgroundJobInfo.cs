@@ -4,17 +4,17 @@ namespace Hospital.Fw.BackgroundJobs.Implementations;
 
 public sealed class BackgroundJobInfo
 {
-    public string Id { get; set; }
+    public string Id { get; set; } = null!;
 
     /// <summary>
     /// 任务名称
     /// </summary>
-    public string JobName { get; set; } = default!;
+    public string JobName { get; set; } = null!;
 
     /// <summary>
     /// 任务参数
     /// </summary>
-    public string JobArgs { get; set; } = default!;
+    public string JobArgs { get; set; } = null!;
 
     /// <summary>
     /// 任务失败重试的次数

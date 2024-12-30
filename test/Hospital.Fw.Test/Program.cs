@@ -19,6 +19,10 @@ using Serilog.Events;
 using SqlSugar;
 using System.Reflection;
 
+/*
+ * dotnet pack -c release -o C:\Users\Administrator\Desktop\pack
+ * dotnet nuget push *.nupkg -k EE90BD155433BB -s "http://192.168.5.245:8885/nuget" --skip-duplicate 
+ */
 Log.Logger = new LoggerConfiguration()
 #if DEBUG
     .MinimumLevel.Debug()
@@ -53,7 +57,7 @@ try
         containerBuilder.RegisterModule<AutofacModule>();
     });
 
-    // Ìæ»»¿ØÖÆÆ÷µÄÌæ»»¹æÔò(Ä¿µÄ:Ê¹ÓÃAutofacµÄÌØÐÔ×¢Èë)
+    // ï¿½æ»»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ»»ï¿½ï¿½ï¿½ï¿½(Ä¿ï¿½ï¿½:Ê¹ï¿½ï¿½Autofacï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½)
     builder.Services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
 
     //builder.Services.AddTransactionFilter();
@@ -66,23 +70,23 @@ try
     builder.Services.AddControllers()
         .AddJsonOptions(jsonOptions =>
         {
-            jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null; // ±£³ÖÊôÐÔÃû²»±ä
+            jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         });
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen(c =>
     {
-        // ÉèÖÃ±êÌâºÍÃèÊö
+        // ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hospital.Fw.Test", Version = "v1" });
         var assemblies = LoadAssemblies.AssembliesStartingWith;
         foreach (var assembly in assemblies)
         {
-            // »ñÈ¡ XML ÎÄ¼þÂ·¾¶
+            // ï¿½ï¿½È¡ XML ï¿½Ä¼ï¿½Â·ï¿½ï¿½
             var xmlFile = $"{assembly.GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
-            // ¼ì²é XML ÎÄ¼þÊÇ·ñ´æÔÚ²¢°üº¬µ½ Swagger ÎÄµµÖÐ
+            // ï¿½ï¿½ï¿½ XML ï¿½Ä¼ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Swagger ï¿½Äµï¿½ï¿½ï¿½
             if (File.Exists(xmlPath))
             {
                 c.IncludeXmlComments(xmlPath);
@@ -94,7 +98,7 @@ try
 
     builder.Services.AddSqlSugar(builder.Configuration);
 
-    // Ìí¼ÓºóÌ¨ÈÎÎñ·þÎñ
+    // ï¿½ï¿½Óºï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     builder.Services.AddBackgroundJobs(builder.Configuration);
     builder.Services.AddBackgroundJobTasks();
 
@@ -119,15 +123,15 @@ try
 
     app.MapControllers();
 
-    // Ìí¼ÓºóÌ¨ÈÎÎñ
+    // ï¿½ï¿½Óºï¿½Ì¨ï¿½ï¿½ï¿½ï¿½
     app.Lifetime.ApplicationStarted.Register(StartCallback);
 
-    // Í£Ö¹·þÎñ
+    // Í£Ö¹ï¿½ï¿½ï¿½ï¿½
     app.Lifetime.ApplicationStopping.Register(StopCallback);
 
     app.Run();
 
-    // Æô¶¯·þÎñ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     async void StartCallback()
     {
         if (serviceProvider.GetRequiredService<IOptions<BackgroundJobOptions>>().Value.IsJobExecutionEnabled)
@@ -137,7 +141,7 @@ try
         await serviceProvider.GetRequiredService<IBackgroundWorkerManager>().StartAsync();
     }
 
-    // Í£Ö¹·þÎñ
+    // Í£Ö¹ï¿½ï¿½ï¿½ï¿½
     async void StopCallback()
     {
         await serviceProvider.GetRequiredService<IBackgroundWorkerManager>().StopAsync();
