@@ -365,3 +365,4 @@ FodyWeavers.xsd
 /.idea/.idea.Hospital.Medicare.Upload/.idea
 /.idea/config
 /src/Hospital.Medicare.Upload.Host/job_task.db
+/.idea/.idea.Hospital.Fw/.idea
