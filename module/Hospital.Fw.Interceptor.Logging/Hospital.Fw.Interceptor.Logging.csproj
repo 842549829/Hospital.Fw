@@ -4,6 +4,7 @@
 	<Import Project="../../configureawait.props"/>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Hospital.Fw.Domain\Hospital.Fw.Domain.csproj" />
+		<ProjectReference Include="..\Hospital.Fw.Interceptor\Hospital.Fw.Interceptor.csproj" />
 	</ItemGroup>
+
 </Project>

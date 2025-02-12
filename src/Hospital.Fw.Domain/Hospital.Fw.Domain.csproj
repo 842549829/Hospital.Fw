@@ -1,11 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<Version>1.0.0</Version>
-	</PropertyGroup>
+	<Import Project="../../common.props" />
+	<Import Project="../../configureawait.props"/>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Hospital.Fw.Application.Contract\Hospital.Fw.Application.Contract.csproj" />
@@ -13,6 +9,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SqlSugarCore" Version="5.1.4.175" />
+		<PackageReference Include="SqlSugarCore" />
 	</ItemGroup>
 </Project>

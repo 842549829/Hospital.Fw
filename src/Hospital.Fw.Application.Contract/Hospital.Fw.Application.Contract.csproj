@@ -1,14 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <Version>1.0.0</Version>
-  </PropertyGroup>
+	<Import Project="../../common.props" />
+	<Import Project="../../configureawait.props"/>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Hospital.Fw.Domain.Shared\Hospital.Fw.Domain.Shared.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Hospital.Fw.Domain.Shared\Hospital.Fw.Domain.Shared.csproj" />
+	</ItemGroup>
 
 </Project>
