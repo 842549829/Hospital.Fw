@@ -8,9 +8,13 @@ namespace Hospital.Fw.Test.Controllers;
 public class HomeController(ILogger<HomeController> logger, ITestAppService testAppService) : ControllerBase
 {
     [HttpGet]
-    public Task<string> Get()
+    public async Task<string> Get()
     {
         logger.LogInformation("Get");
-        return testAppService.GetAsync();
+
+
+        var d1 = await testAppService.GetAsync2((new List<string> { "111", "x" }, "drferfe "));
+
+        return await testAppService.GetAsync();
     }
 }

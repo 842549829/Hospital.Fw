@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Hospital.Fw.Application;
 using Hospital.Fw.BackgroundJobs;
@@ -8,6 +8,7 @@ using Hospital.Fw.Domain.Shared.Constant;
 using Hospital.Fw.Domain.Shared.Core;
 using Hospital.Fw.HttpApi.Autofac;
 using Hospital.Fw.HttpApi.Middleware;
+using Hospital.Fw.Interceptor.DynamicProxy;
 using Hospital.Fw.Test.Jobs;
 using Hospital.Fw.Test.SqlSugarCore;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -48,16 +49,18 @@ try
         Assembly.Load("Hospital.Fw.Domain.Shared"),
         Assembly.Load("Hospital.Fw.HttpApi"),
         Assembly.Load("Hospital.Fw.SqlSugarCore"),
-        Assembly.Load("Hospital.Fw.Test")
+        Assembly.Load("Hospital.Fw.Test"),
+        Assembly.Load("Hospital.Fw.Interceptor.Logging"), 
+        Assembly.Load("Hospital.Fw.Interceptor"),
     ];
 
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     {
         containerBuilder.RegisterModule<AutofacModule>();
+        containerBuilder.RegisterModule<DynamicProxyAutofacModule>();
     });
 
-    // �滻���������滻����(Ŀ��:ʹ��Autofac������ע��)
     builder.Services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
 
     //builder.Services.AddTransactionFilter();
@@ -70,23 +73,20 @@ try
     builder.Services.AddControllers()
         .AddJsonOptions(jsonOptions =>
         {
-            jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null; // ��������������
+            jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null; 
         });
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen(c =>
     {
-        // ���ñ��������
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hospital.Fw.Test", Version = "v1" });
         var assemblies = LoadAssemblies.AssembliesStartingWith;
         foreach (var assembly in assemblies)
         {
-            // ��ȡ XML �ļ�·��
             var xmlFile = $"{assembly.GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
-            // ��� XML �ļ��Ƿ���ڲ������� Swagger �ĵ���
             if (File.Exists(xmlPath))
             {
                 c.IncludeXmlComments(xmlPath);
@@ -98,7 +98,6 @@ try
 
     builder.Services.AddSqlSugar(builder.Configuration);
 
-    // ��Ӻ�̨�������
     builder.Services.AddBackgroundJobs(builder.Configuration);
     builder.Services.AddBackgroundJobTasks();
 
@@ -123,15 +122,12 @@ try
 
     app.MapControllers();
 
-    // ��Ӻ�̨����
     app.Lifetime.ApplicationStarted.Register(StartCallback);
 
-    // ֹͣ����
     app.Lifetime.ApplicationStopping.Register(StopCallback);
 
     app.Run();
 
-    // ��������
     async void StartCallback()
     {
         if (serviceProvider.GetRequiredService<IOptions<BackgroundJobOptions>>().Value.IsJobExecutionEnabled)
@@ -141,7 +137,6 @@ try
         await serviceProvider.GetRequiredService<IBackgroundWorkerManager>().StartAsync();
     }
 
-    // ֹͣ����
     async void StopCallback()
     {
         await serviceProvider.GetRequiredService<IBackgroundWorkerManager>().StopAsync();

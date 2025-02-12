@@ -1,6 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<Import Project="../../common.props" />
-	<Import Project="../../configureawait.props"/>
+	<Import Project="../../configureawait.props" />
 
+
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extras.DynamicProxy" />
+		<PackageReference Include="Castle.Core" />
+		<PackageReference Include="Castle.Core.AsyncInterceptor" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\Hospital.Fw.Domain.Shared\Hospital.Fw.Domain.Shared.csproj" />
+	</ItemGroup>
 </Project>
