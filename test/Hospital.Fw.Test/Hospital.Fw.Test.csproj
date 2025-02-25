@@ -12,8 +12,10 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\module\Hospital.Fw.BackgroundJobs\Hospital.Fw.BackgroundJobs.csproj" />
 	  <ProjectReference Include="..\..\module\Hospital.Fw.Interceptor.Logging\Hospital.Fw.Interceptor.Logging.csproj" />
+	  <ProjectReference Include="..\..\module\Hospital.Fw.Mo.Logging\Hospital.Fw.Mo.Logging.csproj" />
 	  <ProjectReference Include="..\..\src\Hospital.Fw.HttpApi\Hospital.Fw.HttpApi.csproj" />
 	  <ProjectReference Include="..\..\src\Hospital.Fw.SqlSugarCore\Hospital.Fw.SqlSugarCore.csproj" />
+	  <PackageReference Include="Rougamo.Fody" />
 	</ItemGroup>
 
 </Project>

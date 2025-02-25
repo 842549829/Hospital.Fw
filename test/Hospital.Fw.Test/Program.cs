@@ -19,6 +19,7 @@ using Serilog;
 using Serilog.Events;
 using SqlSugar;
 using System.Reflection;
+using Hospital.Fw.Mo.Logging.AopLog;
 
 /*
  * dotnet pack -c release -o C:\Users\Administrator\Desktop\pack
@@ -105,8 +106,15 @@ try
 
     var serviceProvider = app.Services;
 
+
     app.UseExceptionHandling();
 
+    // 添加日志记录器
+    app.Use(async (context, next) =>
+    {
+        LoggerAttribute.SetServiceProvider(context.RequestServices);
+        await next();
+    });
 
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())

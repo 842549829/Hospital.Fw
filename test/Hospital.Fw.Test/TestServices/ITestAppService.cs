@@ -21,6 +21,7 @@ public class TestAppService : BaseAppService, ITestAppService
     }
 
     [Logging("Hospital.Fw.Test.TestServices.GetAsync")]
+    [Hospital.Fw.Mo.Logging.AopLog.Logger]
     public async Task<string> GetAsync()
     {
         var d = ServiceProvider.GetService<IEnumerator<IFwInterceptor>>();

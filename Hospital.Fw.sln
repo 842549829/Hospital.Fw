@@ -32,7 +32,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Fw.SqlSugarCore", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Fw.HttpApi", "src\Hospital.Fw.HttpApi\Hospital.Fw.HttpApi.csproj", "{66458BBB-0E43-4CD9-8268-0E1F688EA9D5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-test", "04-test", "{7D0EE67A-2A4C-4614-BAE6-1683F87901B1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-test", "05-test", "{7D0EE67A-2A4C-4614-BAE6-1683F87901B1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Fw.Test", "test\Hospital.Fw.Test\Hospital.Fw.Test.csproj", "{31792874-474D-4E58-9ADB-DEC8573342E7}"
 EndProject
@@ -43,6 +43,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.Interceptor", "module\Hospital.Fw.Interceptor\Hospital.Fw.Interceptor.csproj", "{0C667B2F-8FA3-4A4E-8AEE-9B67C46DD47A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.Interceptor.Logging", "module\Hospital.Fw.Interceptor.Logging\Hospital.Fw.Interceptor.Logging.csproj", "{99F6E4AD-FAD6-4B8E-A3E1-58E6FDD4DEC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.Mo.Logging", "module\Hospital.Fw.Mo.Logging\Hospital.Fw.Mo.Logging.csproj", "{9221E0EC-6246-46B1-9B7C-604A0ABF4A1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-custom", "04-custom", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +94,10 @@ Global
 		{99F6E4AD-FAD6-4B8E-A3E1-58E6FDD4DEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99F6E4AD-FAD6-4B8E-A3E1-58E6FDD4DEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99F6E4AD-FAD6-4B8E-A3E1-58E6FDD4DEC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9221E0EC-6246-46B1-9B7C-604A0ABF4A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9221E0EC-6246-46B1-9B7C-604A0ABF4A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9221E0EC-6246-46B1-9B7C-604A0ABF4A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9221E0EC-6246-46B1-9B7C-604A0ABF4A1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +113,7 @@ Global
 		{EEEC0D28-9D95-442F-AB5B-1EE3BBA03CAD} = {865196ED-EBC7-49BB-BC7F-EE9111695025}
 		{0C667B2F-8FA3-4A4E-8AEE-9B67C46DD47A} = {865196ED-EBC7-49BB-BC7F-EE9111695025}
 		{99F6E4AD-FAD6-4B8E-A3E1-58E6FDD4DEC2} = {865196ED-EBC7-49BB-BC7F-EE9111695025}
+		{9221E0EC-6246-46B1-9B7C-604A0ABF4A1A} = {865196ED-EBC7-49BB-BC7F-EE9111695025}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {22C8EE45-8F06-4770-B299-BD19A1084052}
