@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Hospital.Fw.HttpApi.Custom": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:54936;http://localhost:54937"
+    }
+  }
+}
