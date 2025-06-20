@@ -52,6 +52,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.Domain.Shared.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.HttpApi.Custom", "custom\Hospital.Fw.HttpApi.Custom\Hospital.Fw.HttpApi.Custom.csproj", "{9C053F79-3D2A-4D9E-BBBC-92969E3D613C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.Permission", "module\Hospital.Fw.Permission\Hospital.Fw.Permission.csproj", "{53C8735B-3CDF-E108-8A5F-0F99071FDE5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.PermissionTest", "test\Hospital.Fw.PermissionTest\Hospital.Fw.PermissionTest.csproj", "{85BF4DBF-DAFD-5502-7B5A-A219020C918C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +114,14 @@ Global
 		{9C053F79-3D2A-4D9E-BBBC-92969E3D613C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C053F79-3D2A-4D9E-BBBC-92969E3D613C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C053F79-3D2A-4D9E-BBBC-92969E3D613C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53C8735B-3CDF-E108-8A5F-0F99071FDE5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C8735B-3CDF-E108-8A5F-0F99071FDE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C8735B-3CDF-E108-8A5F-0F99071FDE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C8735B-3CDF-E108-8A5F-0F99071FDE5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85BF4DBF-DAFD-5502-7B5A-A219020C918C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85BF4DBF-DAFD-5502-7B5A-A219020C918C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85BF4DBF-DAFD-5502-7B5A-A219020C918C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85BF4DBF-DAFD-5502-7B5A-A219020C918C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,6 +140,8 @@ Global
 		{9221E0EC-6246-46B1-9B7C-604A0ABF4A1A} = {865196ED-EBC7-49BB-BC7F-EE9111695025}
 		{13915C65-3C09-4158-9AD2-5B5687FC90D3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{9C053F79-3D2A-4D9E-BBBC-92969E3D613C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{53C8735B-3CDF-E108-8A5F-0F99071FDE5E} = {865196ED-EBC7-49BB-BC7F-EE9111695025}
+		{85BF4DBF-DAFD-5502-7B5A-A219020C918C} = {7D0EE67A-2A4C-4614-BAE6-1683F87901B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {22C8EE45-8F06-4770-B299-BD19A1084052}
