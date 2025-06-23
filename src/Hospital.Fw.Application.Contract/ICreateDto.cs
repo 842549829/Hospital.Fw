@@ -1,9 +1,27 @@
-﻿namespace Hospital.Fw.Application.Contract
+﻿namespace Hospital.Fw.Application.Contract;
+
+/// <summary>
+/// ICreateDto
+/// </summary>
+public interface ICreateDto
 {
     /// <summary>
-    /// 11111
+    /// 创建时间
     /// </summary>
-    public interface ICreateDto
-    {
-    }
+    public DateTime CreateTime { get; set; }
+
+    /// <summary>
+    /// 创建人
+    /// </summary>
+    public string? CreatorName { get; set; }
+
+    /// <summary>
+    /// 创建人Id
+    /// </summary>
+    public string? CreatorId { get; set; }
+
+    /// <summary>
+    /// 是否启用
+    /// </summary>
+    public bool IsEnabled { get; set; }
 }

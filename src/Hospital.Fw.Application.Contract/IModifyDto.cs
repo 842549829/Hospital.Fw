@@ -1,9 +1,9 @@
 ﻿namespace Hospital.Fw.Application.Contract;
 
 /// <summary>
-/// 审计编辑
+/// 修改Dto
 /// </summary>
-public class ModifyDto : CreateDto, IModifyDto
+public interface IModifyDto
 {
     /// <summary>
     /// 最后修改人Id

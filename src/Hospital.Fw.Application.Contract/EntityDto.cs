@@ -1,15 +1,15 @@
 ﻿namespace Hospital.Fw.Application.Contract;
 
-public class EntityDto<T> : EntityDto, IEntityDto<T>
+public class EntityDto<TKey> : EntityDto, IEntityDto<TKey>
 {
-    public T Id { get; set; } = default!;
+    public TKey Id { get; set; } = default!;
 }
 
 public class EntityDto : IEntityDto;
 
 public interface IEntityDto;
 
-public interface IEntityDto<T>
+public interface IEntityDto<TKey>
 {
-    public T Id { get; set; }
+    public TKey Id { get; set; }
 }
