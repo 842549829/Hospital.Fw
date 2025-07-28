@@ -9,6 +9,7 @@ using Hospital.Fw.Domain.Shared.Core;
 using Hospital.Fw.HttpApi.Autofac;
 using Hospital.Fw.HttpApi.Middleware;
 using Hospital.Fw.Interceptor.DynamicProxy;
+using Hospital.Fw.Mo.Logging.AopLog;
 using Hospital.Fw.Test.Jobs;
 using Hospital.Fw.Test.SqlSugarCore;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -19,7 +20,6 @@ using Serilog;
 using Serilog.Events;
 using SqlSugar;
 using System.Reflection;
-using Hospital.Fw.Mo.Logging.AopLog;
 
 /*
  * dotnet pack -c release -o C:\Users\Administrator\Desktop\pack
