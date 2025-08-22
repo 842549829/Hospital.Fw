@@ -5,11 +5,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="JetBrains.Annotations" />
+		<PackageReference Include="Mapster.DependencyInjection" />
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
 		<PackageReference Include="Microsoft.Extensions.Options" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
-		<PackageReference Include="Autofac.Extensions.DependencyInjection" />
-		<PackageReference Include="AutoMapper" />
 	</ItemGroup>
 </Project>

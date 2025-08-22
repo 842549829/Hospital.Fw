@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using Hospital.Fw.BackgroundJobs.Abstractions;
+﻿using Hospital.Fw.BackgroundJobs.Abstractions;
 using Hospital.Fw.BackgroundJobs.Implementations;
 using Hospital.Fw.Domain.Shared.Constant;
+using Mapster;
 using SqlSugar;
 
 namespace Hospital.Fw.Test.Jobs;
 
-public class BackgroundJobStore(ISqlSugarClient dbContext, IMapper mapper) : IBackgroundJobStore
+public class BackgroundJobStore(ISqlSugarClient dbContext) : IBackgroundJobStore
 {
     /// <summary>
     /// Gets a BackgroundJobInfo based on the given jobId.
@@ -88,12 +88,12 @@ public class BackgroundJobStore(ISqlSugarClient dbContext, IMapper mapper) : IBa
 
     public BackgroundJobInfo ToBackgroundJobInfo(JobTask docTask)
     {
-        return mapper.Map<BackgroundJobInfo>(docTask);
+        return docTask.Adapt<BackgroundJobInfo>();
     }
 
     public JobTask ToDocTask(BackgroundJobInfo backgroundJobInfo)
     {
-        return mapper.Map<JobTask>(backgroundJobInfo);
+        return backgroundJobInfo.Adapt<JobTask>();
     }
 
     public static void UpdateDocTask(JobTask docTask, BackgroundJobInfo backgroundJobInfo)

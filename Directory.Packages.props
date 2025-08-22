@@ -6,10 +6,10 @@
     <PackageVersion Include="Autofac.Extras.DynamicProxy" Version="7.1.0" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
     <PackageVersion Include="JetBrains.Annotations" Version="2025.2.0" />
-    <PackageVersion Include="SharpGrip.FluentValidation.AutoValidation.Mvc" Version="1.5.0" />
-    <PackageVersion Include="SqlSugarCore" Version="5.1.4.198" />
+    <PackageVersion Include="Mapster.DependencyInjection" Version="1.0.1" />
     <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
-    <PackageVersion Include="AutoMapper" Version="14.0.0" />
+    <PackageVersion Include="SharpGrip.FluentValidation.AutoValidation.Mvc" Version="1.5.0" />
+    <PackageVersion Include="SqlSugarCore" Version="5.1.4.200" />
     <PackageVersion Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageVersion Include="Serilog.Sinks.Async" Version="2.1.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="9.0.3" />
@@ -20,14 +20,14 @@
     <PackageVersion Include="Rougamo.Fody" Version="5.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="8.13.0" />
-    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.13.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.18" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="8.14.0" />
+    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.19" />
   </ItemGroup>
 </Project>

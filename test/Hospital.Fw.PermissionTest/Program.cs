@@ -6,6 +6,8 @@ using Hospital.Fw.HttpApi.Autofac;
 using Hospital.Fw.HttpApi.Middleware;
 using Hospital.Fw.PermissionTest.Permissions;
 using Hospital.Fw.PermissionTest.SqlSugarCore;
+using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
@@ -56,7 +58,11 @@ try
 
     //builder.Services.AddTransactionFilter();
 
-    builder.Services.AddAutoMapper(LoadAssemblies.AssembliesStartingWith);
+    // 获取你要扫描的程序集（比如 Application 程序集）
+    // 自动注册所有实现 IRegister 的类
+    TypeAdapterConfig.GlobalSettings.Scan(LoadAssemblies.AssembliesStartingWith.ToArray());
+    builder.Services.AddSingleton(TypeAdapterConfig.GlobalSettings);
+    builder.Services.AddScoped<IMapper, ServiceMapper>();
 
     // Add services to the container.
     builder.Host.UseSerilog();

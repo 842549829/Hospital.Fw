@@ -12,6 +12,8 @@ using Hospital.Fw.Interceptor.DynamicProxy;
 using Hospital.Fw.Mo.Logging.AopLog;
 using Hospital.Fw.Test.Jobs;
 using Hospital.Fw.Test.SqlSugarCore;
+using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
@@ -66,7 +68,9 @@ try
 
     //builder.Services.AddTransactionFilter();
 
-    builder.Services.AddAutoMapper(LoadAssemblies.AssembliesStartingWith);
+    TypeAdapterConfig.GlobalSettings.Scan(LoadAssemblies.AssembliesStartingWith.ToArray());
+    builder.Services.AddSingleton(TypeAdapterConfig.GlobalSettings);
+    builder.Services.AddScoped<IMapper, ServiceMapper>();
 
     // Add services to the container.
     builder.Host.UseSerilog();
