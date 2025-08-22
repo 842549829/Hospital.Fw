@@ -6,11 +6,23 @@
 public class DefaultPermissionDefinitionManager : IPermissionDefinitionManager
 {
     /// <summary>
-    /// 获取权限
+    /// 是否有权限存在
     /// </summary>
+    /// <param name="permissionName">权限名称</param>
     /// <returns>权限</returns>
-    public IReadOnlyList<string> GetPermissions()
+    public Task<bool> IsPermissionsAsync(string permissionName)
     {
-        return new List<string>();
+        return Task.FromResult(true);
+    }
+
+    /// <summary>
+    /// 是否有权限
+    /// </summary>
+    /// <param name="userId">用户Id</param>
+    /// <param name="permissionName">权限名称</param>
+    /// <returns>用户权限</returns>
+    public Task<bool> IsPermissionsAsync(string userId, string permissionName)
+    {
+        return Task.FromResult(true);
     }
 }

@@ -21,14 +21,13 @@ public class AuthorizationPolicyProvider(
             return policy;
         }
 
-        var permission = permissionDefinitionManager.GetPermissions();
-        if (permission.All(d => d != policyName))
+        if (!await permissionDefinitionManager.IsPermissionsAsync(policyName))
         {
             return null;
         }
+
         var policyBuilder = new AuthorizationPolicyBuilder([]);
         policyBuilder.Requirements.Add(new PermissionRequirement(policyName));
         return policyBuilder.Build();
-
     }
 }

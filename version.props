@@ -1,7 +1,7 @@
 ﻿<Project>
 	<PropertyGroup>
 		<LangVersion>12</LangVersion>
-		<Version>1.0.5</Version>
+		<Version>1.0.6</Version>
 		<!-- All Microsoft TargetFrameworks Packages -->
 		<MicrosoftTargetFramework>net8.0</MicrosoftTargetFramework>
 	</PropertyGroup>

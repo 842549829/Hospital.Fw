@@ -26,12 +26,12 @@ public static class PermissionTestExtension
 public class TestPermissionDefinitionManager : IPermissionDefinitionManager
 {
     /// <summary>
-    /// 获取权限
+    /// 获取所有权限
     /// </summary>
     /// <returns>权限</returns>
-    public IReadOnlyList<string> GetPermissions()
+    public Task<IReadOnlyList<string>> GetAllPermissionsAsync()
     {
-        return new List<string>
+        IReadOnlyList<string> result = new List<string>
         {
             "A1",
             "A2",
@@ -39,5 +39,28 @@ public class TestPermissionDefinitionManager : IPermissionDefinitionManager
             "A4",
             "A5"
         };
+        return Task.FromResult(result);
+    }
+
+    /// <summary>
+    /// 是否有权限存在
+    /// </summary>
+    /// <param name="permissionName">权限名称</param>
+    /// <returns>权限</returns>
+    public async Task<bool> IsPermissionsAsync(string permissionName)
+    {
+        var result = (await GetAllPermissionsAsync()).Any(x => x == permissionName);
+        return result;
+    }
+
+    /// <summary>
+    /// 是否有权限
+    /// </summary>
+    /// <param name="userId">用户Id</param>
+    /// <param name="permissionName">权限名称</param>
+    /// <returns>用户权限</returns>
+    public Task<bool> IsPermissionsAsync(string userId, string permissionName)
+    {
+        return Task.FromResult(true);
     }
 }

@@ -47,13 +47,30 @@ public class JwtServices : IJwtServices
         {
             new(JwtRegisteredClaimNames.Sub, user.Id),
             new(JwtRegisteredClaimNames.Name, user.UserName),
-            new(JwtRegisteredClaimNames.Email, user.Email),
-            new("phone", user.Phone),
             new("nick", user.NickName),
-            new("avatar", user.Avatar)
         };
-        claims.AddRange(user.Roles.Select(role => new Claim("role", role)));
-        claims.AddRange(user.Permissions.Select(permission => new Claim("permission", permission)));
+
+        if (!string.IsNullOrWhiteSpace(user.Avatar))
+        {
+            claims.Add(new Claim("avatar", user.Avatar));
+        }
+        if (!string.IsNullOrWhiteSpace(user.Phone))
+        {
+            claims.Add(new Claim("phone", user.Phone));
+        }
+        if(!string.IsNullOrWhiteSpace(user.Email))
+        {
+            claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
+        }
+        if (user.Roles != null)
+        {
+            claims.AddRange(user.Roles.Select(role => new Claim("role", role)));
+        }
+        if (user.Permissions != null)
+        {
+            claims.AddRange(user.Permissions.Select(permission => new Claim("permission", permission)));
+        }
+
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Secret));
         var token = new JwtSecurityToken(
             issuer: jwtOptions.Issuer,

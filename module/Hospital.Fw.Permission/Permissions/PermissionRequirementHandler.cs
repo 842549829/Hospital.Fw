@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace Hospital.Fw.Permission.Permissions;
 
 /// <summary>
 /// 权限验证处理
 /// </summary>
-public class PermissionRequirementHandler : AuthorizationHandler<PermissionRequirement>
+public class PermissionRequirementHandler(IPermissionDefinitionManager permissionDefinitionManager) : AuthorizationHandler<PermissionRequirement>
 {
     /// <summary>
     /// 权限验证处理
@@ -13,7 +14,7 @@ public class PermissionRequirementHandler : AuthorizationHandler<PermissionRequi
     /// <param name="context">当前上下文</param>
     /// <param name="requirement">权限策略</param>
     /// <returns>Task</returns>
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, PermissionRequirement requirement)
+    protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, PermissionRequirement requirement)
     {
         // 获取用户主体信息
         var user = context.User;
@@ -24,11 +25,22 @@ public class PermissionRequirementHandler : AuthorizationHandler<PermissionRequi
             // 判断用户是否拥有权限
             if (permissions.Contains(requirement.PermissionName))
             {
-                // 添加权限
                 context.Succeed(requirement);
             }
             else
             {
+                var userId = user.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Sub)?.Value;
+                if (userId != null)
+                {
+                    if (await permissionDefinitionManager.IsPermissionsAsync(userId, requirement.PermissionName))
+                    {
+                        context.Succeed(requirement);
+                    }
+                    else
+                    {
+                        context.Fail();
+                    }
+                }
                 context.Fail();
             }
         }
@@ -36,6 +48,5 @@ public class PermissionRequirementHandler : AuthorizationHandler<PermissionRequi
         {
             context.Fail();
         }
-        return Task.CompletedTask;
     }
 }

@@ -10,7 +10,7 @@ public class HomeController(IJwtServices jwtServices) : ControllerBase
 {
 
     [HttpGet("home")]
-    [Authorize()]
+    [Authorize("A1")]
 
     public string Get1()
     {
@@ -20,18 +20,7 @@ public class HomeController(IJwtServices jwtServices) : ControllerBase
     [HttpGet("login")]
     public string Login()
     {
-        var token = jwtServices.CreateToken(new User
-        {
-
-            Id = "1",
-            UserName = "admin",
-            NickName = "管理员",
-            Avatar = "https://avatar.csdn.net/5/E/C/3_qq_32183901.jpg",
-            Email = "admin@admin.com",
-            Phone = "12345678901",
-            Roles = new string[] { "A1", "A2" },
-            Permissions = new string[] { "A1", "A2" }
-        });
+        var token = jwtServices.CreateToken(new User("1", "admin", "管理员"));
         return token;
     }
 }
