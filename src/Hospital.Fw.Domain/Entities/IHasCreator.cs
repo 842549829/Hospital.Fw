@@ -3,4 +3,4 @@
 /// <summary>
 /// 实体基类
 /// </summary>
-public interface IHasCreator : IHasCreatorTime, IMayHaveCreatorName, IMayHaveCreatorId, IHasEnabled;
+public interface IHasCreator : IHasCreatorTime, IMayHaveCreatorName, IMayHaveCreatorId;

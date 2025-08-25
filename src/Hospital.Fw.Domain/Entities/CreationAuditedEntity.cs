@@ -6,8 +6,8 @@ namespace Hospital.Fw.Domain.Entities;
 /// <summary>
 /// 创建审计实体
 /// </summary>
-/// <typeparam name="TKey"></typeparam>
-public abstract class CreationAudited<TKey> : Entity<TKey>, IHasCreator
+/// <typeparam name="TKey">TKey</typeparam>
+public abstract class CreationAuditedEntity<TKey> : Entity<TKey>, IHasCreator
 {
     /// <summary>
     /// 创建时间
@@ -26,10 +26,4 @@ public abstract class CreationAudited<TKey> : Entity<TKey>, IHasCreator
     /// </summary>
     [SugarColumn(IsNullable = true, Length = SqlSugarCoreDbConst.SugarColumnLength32, ColumnDescription = "创建人Id")]
     public virtual string? CreatorId { get; set; }
-
-    /// <summary>
-    /// 是否启用
-    /// </summary>
-    [SugarColumn(IsNullable = false, ColumnDescription = "是否启用")]
-    public virtual bool IsEnabled { get; set; } = true;
 }

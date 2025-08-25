@@ -7,7 +7,7 @@ namespace Hospital.Fw.Domain.Entities;
 /// 审计实体
 /// </summary>
 /// <typeparam name="TKey"></typeparam>
-public abstract class AuditedEntity<TKey> : CreationAudited<TKey>, IMayHaveLastModification
+public abstract class AuditedEntity<TKey> : CreationAuditedEntity<TKey>, IMayHaveLastModification
 {  
     /// <summary>
     /// 最后修改人Id
