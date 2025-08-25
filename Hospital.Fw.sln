@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.Permission", "m
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.PermissionTest", "test\Hospital.Fw.PermissionTest\Hospital.Fw.PermissionTest.csproj", "{85BF4DBF-DAFD-5502-7B5A-A219020C918C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Fw.Interceptor.Sequence", "module\Hospital.Fw.Interceptor.Sequence\Hospital.Fw.Interceptor.Sequence.csproj", "{3DDAE6A6-A4CA-4CB6-A2A0-514856D968BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -122,6 +124,10 @@ Global
 		{85BF4DBF-DAFD-5502-7B5A-A219020C918C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85BF4DBF-DAFD-5502-7B5A-A219020C918C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85BF4DBF-DAFD-5502-7B5A-A219020C918C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DDAE6A6-A4CA-4CB6-A2A0-514856D968BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DDAE6A6-A4CA-4CB6-A2A0-514856D968BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DDAE6A6-A4CA-4CB6-A2A0-514856D968BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DDAE6A6-A4CA-4CB6-A2A0-514856D968BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +148,7 @@ Global
 		{9C053F79-3D2A-4D9E-BBBC-92969E3D613C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{53C8735B-3CDF-E108-8A5F-0F99071FDE5E} = {865196ED-EBC7-49BB-BC7F-EE9111695025}
 		{85BF4DBF-DAFD-5502-7B5A-A219020C918C} = {7D0EE67A-2A4C-4614-BAE6-1683F87901B1}
+		{3DDAE6A6-A4CA-4CB6-A2A0-514856D968BC} = {865196ED-EBC7-49BB-BC7F-EE9111695025}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {22C8EE45-8F06-4770-B299-BD19A1084052}

@@ -5,6 +5,7 @@ public class SqlSugarCoreDbConst
     public const string His = "His";
     public const string Emr = "Emr";
     public const string Job = "Job";
+    public const string Sequence = "Sequence";
     public const int SugarColumnLength1 = 1;
     public const int SugarColumnLength2 = 2;
     public const int SugarColumnLength4 = 4;

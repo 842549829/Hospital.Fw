@@ -55,6 +55,7 @@ try
         Assembly.Load("Hospital.Fw.Test"),
         Assembly.Load("Hospital.Fw.Interceptor.Logging"), 
         Assembly.Load("Hospital.Fw.Interceptor"),
+        Assembly.Load("Hospital.Fw.Interceptor.Sequence"),
     ];
 
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());

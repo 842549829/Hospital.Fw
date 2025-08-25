@@ -2,6 +2,7 @@
 using Hospital.Fw.Application.Contract;
 using Hospital.Fw.Domain.Shared.Core.DynamicProxy;
 using Hospital.Fw.Interceptor.Logging.Logging;
+using Hospital.Fw.Interceptor.Sequence;
 
 namespace Hospital.Fw.Test.TestServices;
 
@@ -30,6 +31,9 @@ public class TestAppService : BaseAppService, ITestAppService
         logger.LogInformation("Hello World!");
 
        
+        var  de = ServiceProvider.GetRequiredService<IBatchNumberManager>();
+        var code = await de.PadNumberWithZerosAsync("XXXXX");
+
 
         return await Task.FromResult("Hello World!");
     }
