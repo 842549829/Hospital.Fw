@@ -1,4 +1,6 @@
-﻿namespace Hospital.Fw.Domain.Shared.Core.Extensions;
+﻿using System.Globalization;
+
+namespace Hospital.Fw.Domain.Shared.Core.Extensions;
 
 /// <summary>
 /// 身份证扩展
@@ -46,7 +48,7 @@ public static class IdCardExtension
         }
 
         // 尝试将字符串转换为日期
-        if (DateTime.TryParseExact(formattedBirthDateStr, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out var birthday))
+        if (DateTime.TryParseExact(formattedBirthDateStr, "yyyy-MM-dd", null, DateTimeStyles.None, out var birthday))
         {
             return birthday;
         }
