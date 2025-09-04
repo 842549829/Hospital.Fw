@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.IdentityModel.JsonWebTokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace Hospital.Fw.Permission.Permissions;
 
@@ -29,7 +30,7 @@ public class PermissionRequirementHandler(IPermissionDefinitionManager permissio
             }
             else
             {
-                var userId = user.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Sub)?.Value;
+                var userId = user.Claims.FirstOrDefault(x => x.Type is ClaimTypes.NameIdentifier or JwtRegisteredClaimNames.Sub)?.Value;
                 if (userId != null)
                 {
                     if (await permissionDefinitionManager.IsPermissionsAsync(userId, requirement.PermissionName))
@@ -41,7 +42,10 @@ public class PermissionRequirementHandler(IPermissionDefinitionManager permissio
                         context.Fail();
                     }
                 }
-                context.Fail();
+                else
+                {
+                    context.Fail();
+                }
             }
         }
         else
