@@ -17,8 +17,9 @@ public static class ApplicationExtensions
     /// 添加FluentValidation
     /// </summary>
     /// <param name="services">IServiceCollection</param>
+    /// <param name="type">编写验证器需要扫描的程序集所在类型</param>
     /// <returns>IServiceCollection</returns>
-    public static IServiceCollection AddFluentValidation(this IServiceCollection services)
+    public static IServiceCollection AddFluentValidation(this IServiceCollection services, Type type)
     {
         services.AddFluentValidationAutoValidation(configuration =>
         {
@@ -46,7 +47,7 @@ public static class ApplicationExtensions
             // Replace the default result factory with a custom implementation.
             configuration.OverrideDefaultResultFactoryWith<CustomResultFactory>();
         });
-        services.AddValidatorsFromAssembly(typeof(ApplicationExtensions).Assembly);
+        services.AddValidatorsFromAssembly(type.Assembly);
         return services;
     }
 }

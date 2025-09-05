@@ -91,7 +91,7 @@ try
         }
     });
 
-    builder.Services.AddFluentValidation();
+    builder.Services.AddFluentValidation(typeof(ApplicationExtensions));
 
     builder.Services.AddSqlSugar(builder.Configuration);
 
