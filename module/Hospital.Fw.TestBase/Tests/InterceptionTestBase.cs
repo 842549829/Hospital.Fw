@@ -23,7 +23,10 @@ public abstract class InterceptionTestBase
         Initialize();
     }
 
-    public abstract void InitAssemblies();
+    /// <summary>
+    /// 初始化程序集
+    /// </summary>
+    protected abstract void InitAssemblies();
 
     /// <summary>
     /// CreateServiceCollection
@@ -32,13 +35,6 @@ public abstract class InterceptionTestBase
     protected virtual IServiceCollection CreateServiceCollection()
     {
         return new ServiceCollection();
-    }
-
-    /// <summary>
-    /// RegisterServices
-    /// </summary>
-    protected virtual void RegisterServices()
-    {
     }
 
     protected virtual void Initialize()
