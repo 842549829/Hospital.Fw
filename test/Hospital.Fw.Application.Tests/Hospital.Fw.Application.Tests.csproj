@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="$(SolutionDir)common.test.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.runner.visualstudio" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\module\Hospital.Fw.TestBase\Hospital.Fw.TestBase.csproj" />
+		<ProjectReference Include="..\..\src\Hospital.Fw.Application.Contract\Hospital.Fw.Application.Contract.csproj" />
+		<ProjectReference Include="..\..\src\Hospital.Fw.Application\Hospital.Fw.Application.csproj" />
+		<ProjectReference Include="..\..\src\Hospital.Fw.Domain.Shared\Hospital.Fw.Domain.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Xunit" />
+	</ItemGroup>
+
+</Project>
