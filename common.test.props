@@ -1,6 +1,7 @@
 <Project>
 	<Import Project="version.props" />
 	<PropertyGroup>
+		<TargetFrameworks>$(MicrosoftTargetFramework)</TargetFrameworks>
 		<NoWarn>$(NoWarn);CS1591;CS0436</NoWarn>
 		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
 		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11018.127 d18.0
+VisualStudioVersion = 18.0.11018.127
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Solution Items", "01-Solution Items", "{2564D474-360A-489C-96A0-29A16716C37C}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,7 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Solution Items", "01-Sol
 		configureawait.props = configureawait.props
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
-		global.json = global.json
 		nuget.Config = nuget.Config
 		README.md = README.md
 		version.props = version.props

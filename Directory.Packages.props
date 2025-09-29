@@ -2,13 +2,14 @@
 	<PropertyGroup>
 		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 	</PropertyGroup>
+
 	<ItemGroup>
+		<!-- 共享或不随框架变化的包 -->
 		<PackageVersion Include="Autofac.Extras.DynamicProxy" Version="7.1.0" />
 		<PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
 		<PackageVersion Include="JetBrains.Annotations" Version="2025.2.0" />
 		<PackageVersion Include="Mapster.DependencyInjection" Version="1.0.1" />
 		<PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
-		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
 		<PackageVersion Include="SharpGrip.FluentValidation.AutoValidation.Mvc" Version="1.5.0" />
 		<PackageVersion Include="SqlSugarCore" Version="5.1.4.200" />
 		<PackageVersion Include="Serilog.AspNetCore" Version="9.0.0" />
@@ -20,14 +21,16 @@
 		<PackageVersion Include="Castle.Core.AsyncInterceptor" Version="2.1.0" />
 		<PackageVersion Include="Rougamo.Fody" Version="5.0.1" />
 		<PackageVersion Include="TinyPinyin" Version="1.1.0" />
-	</ItemGroup>
-	<ItemGroup>
+
+		<!-- 测试相关包 -->
 		<PackageVersion Include="coverlet.collector" Version="6.0.4" />
 		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
 		<PackageVersion Include="xunit" Version="2.9.3" />
 		<PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
 	</ItemGroup>
-	<ItemGroup>
+
+	<!-- 针对 .NET 8.0 的 Microsoft 扩展包 -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
 		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.8" />
 		<PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.8" />
 		<PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8" />
@@ -37,5 +40,20 @@
 		<PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="8.14.0" />
 		<PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
 		<PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.19" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+	</ItemGroup>
+
+	<!-- 针对 .NET 9.0 的 Microsoft 扩展包 -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.8" />
+		<PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.8" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8" />
+		<PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.8" />
+		<PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.8" />
+		<PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="8.14.0" />
+		<PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
+		<PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
 	</ItemGroup>
 </Project>

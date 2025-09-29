@@ -8,7 +8,7 @@ namespace Hospital.Fw.Application.Tests
 {
     public class UnitTest1 : InterceptionTestBase
     {
-        public override void InitAssemblies()
+        protected override void InitAssemblies()
         {
             LoadAssemblies.AssembliesStartingWith =
   [
