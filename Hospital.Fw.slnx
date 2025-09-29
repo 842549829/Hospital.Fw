@@ -1,0 +1,40 @@
+<Solution>
+  <Folder Name="/01-Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="common.props" />
+    <File Path="common.test.props" />
+    <File Path="configureawait.props" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="nuget.Config" />
+    <File Path="README.md" />
+    <File Path="version.props" />
+  </Folder>
+  <Folder Name="/02-src/">
+    <Project Path="src/Hospital.Fw.Application.Contract/Hospital.Fw.Application.Contract.csproj" />
+    <Project Path="src/Hospital.Fw.Application/Hospital.Fw.Application.csproj" />
+    <Project Path="src/Hospital.Fw.Domain.Shared/Hospital.Fw.Domain.Shared.csproj" />
+    <Project Path="src/Hospital.Fw.Domain/Hospital.Fw.Domain.csproj" />
+    <Project Path="src/Hospital.Fw.HttpApi/Hospital.Fw.HttpApi.csproj" />
+    <Project Path="src/Hospital.Fw.SqlSugarCore/Hospital.Fw.SqlSugarCore.csproj" />
+  </Folder>
+  <Folder Name="/03-module/">
+    <Project Path="module/Hospital.Fw.BackgroundJobs/Hospital.Fw.BackgroundJobs.csproj" />
+    <Project Path="module/Hospital.Fw.Interceptor.Logging/Hospital.Fw.Interceptor.Logging.csproj" />
+    <Project Path="module/Hospital.Fw.Interceptor.Sequence/Hospital.Fw.Interceptor.Sequence.csproj" />
+    <Project Path="module/Hospital.Fw.Interceptor/Hospital.Fw.Interceptor.csproj" />
+    <Project Path="module/Hospital.Fw.Mo.Logging/Hospital.Fw.Mo.Logging.csproj" />
+    <Project Path="module/Hospital.Fw.Permission/Hospital.Fw.Permission.csproj" />
+    <Project Path="module/Hospital.Fw.TestBase/Hospital.Fw.TestBase.csproj" />
+  </Folder>
+  <Folder Name="/04-custom/">
+    <Project Path="custom/Hospital.Fw.Domain.Shared.Custom/Hospital.Fw.Domain.Shared.Custom.csproj" />
+    <Project Path="custom/Hospital.Fw.HttpApi.Custom/Hospital.Fw.HttpApi.Custom.csproj" />
+  </Folder>
+  <Folder Name="/05-test/">
+    <Project Path="test/Hospital.Fw.Application.Tests/Hospital.Fw.Application.Tests.csproj" />
+    <Project Path="test/Hospital.Fw.PermissionTest/Hospital.Fw.PermissionTest.csproj" />
+    <Project Path="test/Hospital.Fw.Test/Hospital.Fw.Test.csproj" />
+  </Folder>
+</Solution>
