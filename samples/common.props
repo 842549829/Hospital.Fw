@@ -1,0 +1,9 @@
+<Project>
+	<Import Project="version.props" />
+	<PropertyGroup>
+		<TargetFramework>$(MicrosoftTargetFramework)</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Version>$(Version)</Version>
+	</PropertyGroup>
+</Project>

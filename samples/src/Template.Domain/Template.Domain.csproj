@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="../../common.props" />
+	<Import Project="../../configureawait.props" />
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\module\Hospital.Fw.BackgroundJobs\Hospital.Fw.BackgroundJobs.csproj" />
+		<ProjectReference Include="..\..\..\src\Hospital.Fw.Domain\Hospital.Fw.Domain.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Template.Application.Contract\Template.Application.Contract.csproj" />
+		<ProjectReference Include="..\Template.Domain.Shared\Template.Domain.Shared.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="../../common.props" />
+	<Import Project="../../configureawait.props" />
+	<ItemGroup>
+	  <PackageReference Include="Serilog" />
+		<ProjectReference Include="..\..\..\src\Hospital.Fw.SqlSugarCore\Hospital.Fw.SqlSugarCore.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Template.Domain\Template.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

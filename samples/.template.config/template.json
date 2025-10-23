@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "HisChen",
+  "classifications": [ "Template" ],
+  "name": "HisTemplate",
+  "identity": "HisTemplate", 
+  "shortName": "his",
+  "tags": {
+    "language": "C#" 
+  },
+  "sourceName": "Template" /*此处与解决方案名称一致，安装项目时自动替换成项目名称*/
+}
