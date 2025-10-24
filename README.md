@@ -589,7 +589,7 @@ AOP日志模块基于 Rougamo 框架，提供了方法级别的日志记录功�
 #### 使用方式
 
 ```csharp
-public class MyService
+public class MyService : IMyService
 {
     // 记录方法执行的日志，包括参数和返回值
     [Logger]
@@ -636,7 +636,7 @@ builder.Services.AddPermissions(options =>
 2. 创建和使用 JWT 令牌：
 
 ```csharp
-public class AuthService
+public class AuthService : IAuthService
 {
     private readonly IJwtServices _jwtServices;
 
@@ -747,11 +747,11 @@ public class MyServiceTests : InterceptionTestBase
 
 欢迎贡献代码、报告问题或提出改进建议。请遵循以下步骤：
 
-1. Fork 项目
+1. 克隆仓库 (`git clone https://gitee.com/notify/hospital.-fw.git`)
 2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
 3. 提交更改 (`git commit -m 'Add some amazing feature'`)
 4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 创建合并请求
+5. 在Gitee上创建合并请求
 
 ## 许可证
 
