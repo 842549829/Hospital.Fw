@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/01-Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="common.props" />
+    <File Path="common.test.props" />
+    <File Path="configureawait.props" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="nuget.Config" />
+    <File Path="README.md" />
+    <File Path="version.props" />
+  </Folder>
+  <Folder Name="/02-src/">
+    <Project Path="src/Template.Application.Contract/Template.Application.Contract.csproj" />
+    <Project Path="src/Template.Application/Template.Application.csproj" />
+    <Project Path="src/Template.Domain.Shared/Template.Domain.Shared.csproj" />
+    <Project Path="src/Template.Domain/Template.Domain.csproj" />
+    <Project Path="src/Template.Host/Template.Host.csproj" />
+    <Project Path="src/Template.HttpApi/Template.HttpApi.csproj" />
+    <Project Path="src/Template.SqlSugarCore/Template.SqlSugarCore.csproj" />
+  </Folder>
+</Solution>
