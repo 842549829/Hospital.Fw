@@ -42,21 +42,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    var builder = WebApplication.CreateBuilder(args);
-
-    LoadAssemblies.AssembliesStartingWith = 
-    [
-        Assembly.Load("Hospital.Fw.Application"),
-        Assembly.Load("Hospital.Fw.Application.Contract"),
-        Assembly.Load("Hospital.Fw.Domain"),
-        Assembly.Load("Hospital.Fw.Domain.Shared"),
-        Assembly.Load("Hospital.Fw.HttpApi"),
-        Assembly.Load("Hospital.Fw.SqlSugarCore"),
-        Assembly.Load("Hospital.Fw.Test"),
-        Assembly.Load("Hospital.Fw.Interceptor.Logging"), 
-        Assembly.Load("Hospital.Fw.Interceptor"),
-        Assembly.Load("Hospital.Fw.Interceptor.Sequence"),
-    ];
+    WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
@@ -79,7 +65,7 @@ try
     builder.Services.AddControllers()
         .AddJsonOptions(jsonOptions =>
         {
-            jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null; 
+            jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
         });
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -87,11 +73,11 @@ try
     builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hospital.Fw.Test", Version = "v1" });
-        var assemblies = LoadAssemblies.AssembliesStartingWith;
-        foreach (var assembly in assemblies)
+        List<Assembly> assemblies = LoadAssemblies.AssembliesStartingWith;
+        foreach (Assembly assembly in assemblies)
         {
-            var xmlFile = $"{assembly.GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            string xmlFile = $"{assembly.GetName().Name}.xml";
+            string xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
             if (File.Exists(xmlPath))
             {
@@ -107,9 +93,9 @@ try
     builder.Services.AddBackgroundJobs(builder.Configuration);
     builder.Services.AddBackgroundJobTasks();
 
-    var app = builder.Build();
+    WebApplication app = builder.Build();
 
-    var serviceProvider = app.Services;
+    IServiceProvider serviceProvider = app.Services;
 
 
     app.UseExceptionHandling();
@@ -127,9 +113,9 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
 
-        using var scope = app.Services.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<ISqlSugarClient>();
-        var jobDb = db.AsTenant().GetConnection(SqlSugarCoreDbConst.Job);
+        using IServiceScope scope = app.Services.CreateScope();
+        ISqlSugarClient db = scope.ServiceProvider.GetRequiredService<ISqlSugarClient>();
+        SqlSugarProvider jobDb = db.AsTenant().GetConnection(SqlSugarCoreDbConst.Job);
         jobDb.CodeFirst.InitTables(typeof(JobTask));
     }
 

@@ -34,19 +34,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    var builder = WebApplication.CreateBuilder(args);
-
-    LoadAssemblies.AssembliesStartingWith = 
-    [
-        Assembly.Load("Hospital.Fw.Application"),
-        Assembly.Load("Hospital.Fw.Application.Contract"),
-        Assembly.Load("Hospital.Fw.Domain"),
-        Assembly.Load("Hospital.Fw.Domain.Shared"),
-        Assembly.Load("Hospital.Fw.HttpApi"),
-        Assembly.Load("Hospital.Fw.SqlSugarCore"),
-        Assembly.Load("Hospital.Fw.PermissionTest"),
-        Assembly.Load("Hospital.Fw.Permission")
-    ];
+    WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
@@ -70,7 +58,7 @@ try
     builder.Services.AddControllers()
         .AddJsonOptions(jsonOptions =>
         {
-            jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null; 
+            jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
         });
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -78,8 +66,8 @@ try
     builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hospital.Fw.Test", Version = "v1" });
-        var assemblies = LoadAssemblies.AssembliesStartingWith;
-        foreach (var assembly in assemblies)
+        List<Assembly> assemblies = LoadAssemblies.AssembliesStartingWith;
+        foreach (Assembly assembly in assemblies)
         {
             var xmlFile = $"{assembly.GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
@@ -97,7 +85,7 @@ try
 
     builder.Services.AddPermissionsTest(builder.Configuration);
 
-    var app = builder.Build();
+    WebApplication app = builder.Build();
 
     app.UseExceptionHandling();
 

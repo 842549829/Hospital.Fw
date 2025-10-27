@@ -4,13 +4,21 @@
 	<Import Project="../../configureawait.props" />
 
 	<ItemGroup>
-		<PackageReference Include="JetBrains.Annotations" />
-		<PackageReference Include="Mapster.DependencyInjection" />
-		<PackageReference Include="Autofac.Extensions.DependencyInjection" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
 		<PackageReference Include="Microsoft.Extensions.Options" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+		<PackageReference Include="Microsoft.Extensions.DependencyModel" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="TinyPinyin" />
+		<PackageReference Include="JetBrains.Annotations" />
+		<PackageReference Include="Mapster.DependencyInjection" />
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 </Project>
