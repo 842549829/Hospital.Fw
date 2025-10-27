@@ -32,6 +32,16 @@ public static class LoadAssemblies
         EnabledReferenceAssemblyScan = false
     };
 
+
+    /// <summary>
+    /// 配置应用程序选项
+    /// </summary>
+    /// <param name="options">配置</param>
+    public static void Configure(Action<AppSettingsOptions> options)
+    {
+        options.Invoke(Settings);
+    }
+
     /// <summary>
     /// 获取应用有效程序集
     /// </summary>

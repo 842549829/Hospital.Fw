@@ -39,24 +39,13 @@ try
             .WriteTo.Console();
     });
 
-    LoadAssemblies.AssembliesStartingWith =
-    [
-        Assembly.Load("Hospital.Fw.Application"),
-        Assembly.Load("Hospital.Fw.Application.Contract"),
-        Assembly.Load("Hospital.Fw.Domain"),
-        Assembly.Load("Hospital.Fw.Domain.Shared"),
-        Assembly.Load("Hospital.Fw.Domain.Shared.Custom"),
-        Assembly.Load("Hospital.Fw.HttpApi"),
-        Assembly.Load("Hospital.Fw.HttpApi.Custom"),
-        Assembly.Load("Hospital.Fw.SqlSugarCore"),
-        Assembly.Load("Template.Application"),
-        Assembly.Load("Template.Application.Contract"),
-        Assembly.Load("Template.Domain"),
-        Assembly.Load("Template.Domain.Shared"),
-        Assembly.Load("Template.HttpApi"),
-        Assembly.Load("Template.SqlSugarCore"),
-        Assembly.Load("Template.Host")
-    ];
+
+    LoadAssemblies.Configure(options =>
+    {
+        List<string> supportPackageNamePrefixs = options.SupportPackageNamePrefixs.ToList();
+        supportPackageNamePrefixs.Add("Template");
+        options.SupportPackageNamePrefixs = supportPackageNamePrefixs.ToArray();
+    });
 
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
