@@ -26,9 +26,9 @@ public static class LoadAssemblies
     /// </summary>
     internal static AppSettingsOptions Settings = new AppSettingsOptions
     {
-        SupportPackageNamePrefixs = new[] { "Hospital" },
-        ExternalAssemblies = new[] { string.Empty },
-        ExcludeAssemblies = new[] { string.Empty },
+        SupportPackageNamePrefixs = new List<string> { "Hospital" },
+        ExternalAssemblies = new List<string> { string.Empty },
+        ExcludeAssemblies = new List<string> { string.Empty },
         EnabledReferenceAssemblyScan = false
     };
 
@@ -40,6 +40,9 @@ public static class LoadAssemblies
     public static void Configure(Action<AppSettingsOptions> options)
     {
         options.Invoke(Settings);
+
+        (IEnumerable<Assembly>? assemblies, IEnumerable<Assembly>? externalAssemblies, IEnumerable<string>? pathOfExternalAssemblies) = GetAssemblies();
+        AssembliesStartingWith = assemblies.ToList();
     }
 
     /// <summary>
@@ -54,7 +57,7 @@ public static class LoadAssemblies
             };
 
         // 读取应用配置
-        string[] supportPackageNamePrefixs = Settings.SupportPackageNamePrefixs ?? Array.Empty<string>();
+        List<string> supportPackageNamePrefixs = Settings.SupportPackageNamePrefixs;
 
         IEnumerable<Assembly> scanAssemblies;
 

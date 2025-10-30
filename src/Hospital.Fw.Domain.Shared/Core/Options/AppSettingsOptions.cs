@@ -8,7 +8,7 @@ public class AppSettingsOptions
     /// <summary>
     /// 配置支持的包前缀名
     /// </summary>
-    public required string[] SupportPackageNamePrefixs { get; set; }
+    public List<string> SupportPackageNamePrefixs { get; set; } = [];
 
     /// <summary>
     /// 是否启用引用程序集扫描
@@ -19,10 +19,10 @@ public class AppSettingsOptions
     /// 外部程序集
     /// </summary>
     /// <remarks>扫描 dll 文件，如果是单文件发布，需拷贝放在根目录下</remarks>
-    public required string[] ExternalAssemblies { get; set; }
+    public List<string> ExternalAssemblies { get; set; } = [];
 
     /// <summary>
     /// 排除扫描的程序集
     /// </summary>
-    public required string[] ExcludeAssemblies { get; set; }
+    public List<string> ExcludeAssemblies { get; set; } = [];
 }

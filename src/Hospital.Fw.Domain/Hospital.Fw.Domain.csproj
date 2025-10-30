@@ -2,10 +2,7 @@
 
 	<Import Project="../../common.props" />
 	<Import Project="../../configureawait.props" />
-	<ItemGroup>
-	  <None Remove="Entities\CreationPinyinEnableCodeAuditedEntity.cs~RF87f1f0.TMP" />
-	</ItemGroup>
-
+	
 	<ItemGroup>
 		<ProjectReference Include="..\Hospital.Fw.Application.Contract\Hospital.Fw.Application.Contract.csproj" />
 		<ProjectReference Include="..\Hospital.Fw.Domain.Shared\Hospital.Fw.Domain.Shared.csproj" />

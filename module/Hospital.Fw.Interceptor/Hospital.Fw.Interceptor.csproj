@@ -3,7 +3,6 @@
 	<Import Project="../../common.props" />
 	<Import Project="../../configureawait.props" />
 
-
 	<ItemGroup>
 		<PackageReference Include="Autofac.Extras.DynamicProxy" />
 		<PackageReference Include="Castle.Core" />
