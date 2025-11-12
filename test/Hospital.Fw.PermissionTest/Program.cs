@@ -10,7 +10,7 @@ using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Serilog;
 using Serilog.Events;
 using System.Reflection;
@@ -69,8 +69,8 @@ try
         List<Assembly> assemblies = LoadAssemblies.AssembliesStartingWith;
         foreach (Assembly assembly in assemblies)
         {
-            var xmlFile = $"{assembly.GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            string xmlFile = $"{assembly.GetName().Name}.xml";
+            string xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
             if (File.Exists(xmlPath))
             {

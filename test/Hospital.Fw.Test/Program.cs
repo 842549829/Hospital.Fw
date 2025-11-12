@@ -17,7 +17,7 @@ using MapsterMapper;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Serilog;
 using Serilog.Events;
 using SqlSugar;

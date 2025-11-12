@@ -7,18 +7,18 @@
 		<!-- 共享或不随框架变化的包 -->
 		<PackageVersion Include="Autofac.Extras.DynamicProxy" Version="7.1.0" />
 		<PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
-		<PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+		<PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.0" />
 		<PackageVersion Include="JetBrains.Annotations" Version="2025.2.2" />
 		<PackageVersion Include="SharpGrip.FluentValidation.AutoValidation.Mvc" Version="1.5.0" />
 		<PackageVersion Include="SqlSugarCore" Version="5.1.4.207" />
 		<PackageVersion Include="Serilog.AspNetCore" Version="9.0.0" />
 		<PackageVersion Include="Serilog.Sinks.Async" Version="2.1.0" />
-		<PackageVersion Include="Swashbuckle.AspNetCore" Version="9.0.6" />
+		<PackageVersion Include="Swashbuckle.AspNetCore" Version="10.0.0" />
 		<PackageVersion Include="ConfigureAwait.Fody" Version="3.3.2" />
 		<PackageVersion Include="Fody" Version="6.9.3" />
 		<PackageVersion Include="Castle.Core" Version="5.2.1" />
 		<PackageVersion Include="Castle.Core.AsyncInterceptor" Version="2.1.0" />
-		<PackageVersion Include="Rougamo.Fody" Version="5.0.1" />
+		<PackageVersion Include="Rougamo.Fody" Version="5.0.2" />
 		<PackageVersion Include="TinyPinyin" Version="1.1.0" />
 
 		<!-- 测试相关包 -->
@@ -63,16 +63,16 @@
 	<!-- 针对 .NET 10.0 的 Microsoft 扩展包 -->
 	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
 		<PackageVersion Include="Mapster.DependencyInjection" Version="9.0.0-pre01" />
-		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0-rc.2.25502.107" />
-		<PackageVersion Include="Microsoft.Extensions.Options" Version="10.0.0-rc.2.25502.107" />
-		<PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0-rc.2.25502.107" />
-		<PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0-rc.2.25502.107" />
-		<PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0-rc.2.25502.107" />
-		<PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.0-rc.2.25502.107" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Options" Version="10.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.0" />
 		<PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="8.14.0" />
 		<PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
-		<PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0-rc.2.25502.107" />
-		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0-rc.2.25502.107" />
-		<PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="10.0.0-rc.2.25502.107" />
+		<PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="10.0.0" />
 	</ItemGroup>
 </Project>
