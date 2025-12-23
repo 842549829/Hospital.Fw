@@ -16,6 +16,8 @@ Hospital.Fw 是一个基于 .NET 的轻量级、模块化 WebAPI 开发框架。
 - **异常处理**：统一的异常处理机制
 - **拦截器**：支持 AOP 编程，提供日志、序列号等拦截器
 - **会话管理**：提供用户会话管理功能
+- **数据验证**：集成 FluentValidation 提供数据验证功能
+- **简写api**：提供简写api，如：GetListAsync、GetAsync、AddAsync、UpdateAsync、DeleteAsync
 
 ## 项目结构
 
