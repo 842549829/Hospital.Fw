@@ -18,7 +18,7 @@ public abstract class CastleFwMethodInvocationAdapterBase : IFwMethodInvocation
 
     public MethodInfo Method => Invocation.MethodInvocationTarget ?? Invocation.Method;
 
-    public object ReturnValue { get; set; } = default!;
+    public object ReturnValue { get; set; } = null!;
 
     protected IInvocation Invocation { get; }
 

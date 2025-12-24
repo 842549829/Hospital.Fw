@@ -8,12 +8,12 @@ public class AuditedDto : DeleteDto
     /// <summary>
     /// 名称
     /// </summary>
-    public string Name { get; set; } = default!;
+    public string Name { get; set; } = null!;
 
     /// <summary>
     /// 编码
     /// </summary>
-    public string Code { get; set; } = default!;
+    public string Code { get; set; } = null!;
 
     /// <summary>
     /// 备注

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<Import Project="../../common.test.props" />
+
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\module\automaticApi\Hospital.Fw.Automatic.Api.HttpApi\Hospital.Fw.Automatic.Api.HttpApi.csproj" />
+		<ProjectReference Include="..\..\module\automaticApi\Hospital.Fw.Automatic.Api.SqlSugarCore\Hospital.Fw.Automatic.Api.SqlSugarCore.csproj" />
+		<ProjectReference Include="..\..\module\Hospital.Fw.Permission\Hospital.Fw.Permission.csproj" />
+	</ItemGroup>
+
+</Project>

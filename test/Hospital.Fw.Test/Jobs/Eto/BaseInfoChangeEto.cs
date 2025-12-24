@@ -6,12 +6,12 @@ public class BaseInfoChangeEto
     /// guid
     /// 全小写 32
     /// </summary>
-    public string RequestId { get; set; } = default!;
+    public string RequestId { get; set; } = null!;
 
     /// <summary>
     /// 数据表名  数据库表名，全大写
     /// </summary>
-    public string TableName { get; set; } = default!;
+    public string TableName { get; set; } = null!;
 
     /// <summary>
     /// 操作类型
@@ -26,7 +26,7 @@ public class BaseInfoChangeEto
     /// <summary>
     /// 业务id
     /// </summary>
-    public string BusinessId { get; set; } = default!;
+    public string BusinessId { get; set; } = null!;
 
     /// <summary>
     /// 操作时间

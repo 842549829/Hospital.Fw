@@ -29,11 +29,20 @@
     <Project Path="module/Hospital.Fw.Permission/Hospital.Fw.Permission.csproj" />
     <Project Path="module/Hospital.Fw.TestBase/Hospital.Fw.TestBase.csproj" />
   </Folder>
+  <Folder Name="/03-module/automaticApi/">
+    <Project Path="module/automaticApi/Hospital.Fw.Automatic.Api.Application.Contract/Hospital.Fw.Automatic.Api.Application.Contract.csproj" Id="4c1eb889-a477-4053-81bb-e15ae1437e6d" />
+    <Project Path="module/automaticApi/Hospital.Fw.Automatic.Api.Application/Hospital.Fw.Automatic.Api.Application.csproj" Id="536a3a11-0f0a-48e5-9c4d-194412610adb" />
+    <Project Path="module/automaticApi/Hospital.Fw.Automatic.Api.Domain.Shared/Hospital.Fw.Automatic.Api.Domain.Shared.csproj" />
+    <Project Path="module/automaticApi/Hospital.Fw.Automatic.Api.Domain/Hospital.Fw.Automatic.Api.Domain.csproj" Id="2e18b268-216e-4dfa-9be2-06f94ec0c89e" />
+    <Project Path="module/automaticApi/Hospital.Fw.Automatic.Api.HttpApi/Hospital.Fw.Automatic.Api.HttpApi.csproj" Id="c984a087-7a44-4ae0-bebd-daa0795ec36b" />
+    <Project Path="module/automaticApi/Hospital.Fw.Automatic.Api.SqlSugarCore/Hospital.Fw.Automatic.Api.SqlSugarCore.csproj" Id="aabd5f6a-49d6-43fa-94ae-be577b4fbcc6" />
+  </Folder>
   <Folder Name="/04-custom/">
     <Project Path="custom/Hospital.Fw.Domain.Shared.Custom/Hospital.Fw.Domain.Shared.Custom.csproj" />
     <Project Path="custom/Hospital.Fw.HttpApi.Custom/Hospital.Fw.HttpApi.Custom.csproj" />
   </Folder>
   <Folder Name="/05-test/">
+    <Project Path="test/Hospital.Fw.Api.Test/Hospital.Fw.Api.Test.csproj" Id="7b0fdb06-d60d-440c-9b90-de2b84495dbb" />
     <Project Path="test/Hospital.Fw.Application.Tests/Hospital.Fw.Application.Tests.csproj" />
     <Project Path="test/Hospital.Fw.PermissionTest/Hospital.Fw.PermissionTest.csproj" />
     <Project Path="test/Hospital.Fw.Test/Hospital.Fw.Test.csproj" />

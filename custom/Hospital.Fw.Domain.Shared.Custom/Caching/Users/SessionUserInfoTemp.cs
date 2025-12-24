@@ -5,9 +5,9 @@ namespace Hospital.Fw.Domain.Shared.Custom.Caching.Users
     public class SessionUserInfoTemp
     {
         [JsonPropertyName("$type")] 
-        public string Type { get; set; } = default!;
+        public string Type { get; set; } = null!;
 
         [JsonPropertyName("$values")]
-        public List<SessionSysRightSetting> RightSettings { get; set; } = default!;
+        public List<SessionSysRightSetting> RightSettings { get; set; } = null!;
     }
 }

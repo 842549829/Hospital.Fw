@@ -15,20 +15,20 @@ public class JobTask
     /// 主键
     /// </summary>
     [SugarColumn(ColumnName = "ID", Length = SqlSugarCoreDbConst.SugarColumnLength32, IsPrimaryKey = true)]
-    public string Id { get; set; } = default!;
+    public string Id { get; set; } = null!;
 
     /// <summary>
     /// Type of the job.
     /// It's AssemblyQualifiedName of job type.
     /// </summary>
     [SugarColumn(ColumnName = "JOB_NAME", Length = SqlSugarCoreDbConst.SugarColumnLength256, IsNullable = false)]
-    public string JobName { get; set; } = default!;
+    public string JobName { get; set; } = null!;
 
     /// <summary>
     /// Job arguments as serialized string.
     /// </summary>
     [SugarColumn(ColumnName = "JOB_ARGS", Length = SqlSugarCoreDbConst.SugarColumnLength4096, IsNullable = false)]
-    public string JobArgs { get; set; } = default!;
+    public string JobArgs { get; set; } = null!;
 
     /// <summary>
     /// Try count of this job.

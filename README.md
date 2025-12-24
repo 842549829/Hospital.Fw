@@ -32,10 +32,17 @@ Hospital.Fw 是一个基于 .NET 的轻量级、模块化 WebAPI 开发框架。
 │   ├── Hospital.Fw.Interceptor.Sequence/  # 序列号拦截器模块
 │   ├── Hospital.Fw.Mo.Logging/            # 日志模块
 │   ├── Hospital.Fw.Permission/            # 权限模块
-│   └── Hospital.Fw.TestBase/              # 测试基础模块
+│   ├── Hospital.Fw.TestBase/              # 测试基础模块
+│   └──automaticApi/
+│        ├── Hospital.Fw.Automatic.Api.Application/           # AutoApi应用层
+│        ├── Hospital.Fw.Automatic.Api.Application.Contract/  # AutoApi应用层契约
+│        ├── Hospital.Fw.Automatic.Api.Domain/                # AutoApi领域层
+│        ├── Hospital.Fw.Automatic.Api.Domain.Shared/         # AutoApi领域共享层
+│        ├── Hospital.Fw.Automatic.Api.HttpApi/               # AutoApiHTTP API 层
+│        └── Hospital.Fw.Automatic.Api.SqlSugarCore/          # AutoApi数据访问层
 ├── src/                        # 核心源代码
 │   ├── Hospital.Fw.Application/           # 应用层
-│   ├── Hospital.Fw.Application.Contract/   # 应用层契约
+│   ├── Hospital.Fw.Application.Contract/  # 应用层契约
 │   ├── Hospital.Fw.Domain/                # 领域层
 │   ├── Hospital.Fw.Domain.Shared/         # 领域共享层
 │   ├── Hospital.Fw.HttpApi/               # HTTP API 层

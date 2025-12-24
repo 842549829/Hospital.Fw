@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="../../../common.props" />
+	<Import Project="../../../configureawait.props" />
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\src\Hospital.Fw.Application.Contract\Hospital.Fw.Application.Contract.csproj" />
+	  <ProjectReference Include="..\Hospital.Fw.Automatic.Api.Domain.Shared\Hospital.Fw.Automatic.Api.Domain.Shared.csproj" />
+	</ItemGroup>
+</Project>

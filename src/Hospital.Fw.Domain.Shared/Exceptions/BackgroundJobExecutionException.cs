@@ -2,9 +2,9 @@
 
 public class BackgroundJobExecutionException : TaskException
 {
-    public string JobType { get; set; } = default!;
+    public string JobType { get; set; } = null!;
 
-    public object JobArgs { get; set; } = default!;
+    public object JobArgs { get; set; } = null!;
 
     public BackgroundJobExecutionException()
     {

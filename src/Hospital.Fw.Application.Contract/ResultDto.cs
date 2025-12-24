@@ -12,7 +12,7 @@ public class ResultDto<T> : ResultDto
     /// <param name="result">结果</param>
     /// <param name="isSuc">是否成功</param>
     /// <param name="msg">错误信息</param>
-    public ResultDto(T result, bool isSuc = true, string msg = "") : base(isSuc, msg)
+    public ResultDto(T? result, bool isSuc = true, string msg = "") : base(isSuc, msg)
     {
         Result = result;
         IsSuc = isSuc;
@@ -22,7 +22,7 @@ public class ResultDto<T> : ResultDto
     /// <summary>
     /// 结果
     /// </summary>
-    public T Result { get; set; }
+    public T? Result { get; set; }
 }
 
 /// <summary>
