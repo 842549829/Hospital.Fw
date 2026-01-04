@@ -6,7 +6,7 @@
 internal interface IHasTenantId
 {
     /// <summary>
-    /// 组织Id
+    /// 租户Id
     /// </summary>
-    public string OrganizationId { get; set; }
+    public string TenantId { get; set; }
 }
