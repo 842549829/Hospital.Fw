@@ -3,7 +3,7 @@
 /// <summary>
 /// 租户Id
 /// </summary>
-internal interface IHasTenantId
+public interface IHasTenantId
 {
     /// <summary>
     /// 租户Id
