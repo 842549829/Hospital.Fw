@@ -1,7 +1,10 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 
 namespace Hospital.Fw.Permission.Jwt;
@@ -34,11 +37,11 @@ public class JwtServices : IJwtServices
     }
 
     /// <summary>
-    /// 创建Token
+    /// 创建AccessToken
     /// </summary>
     /// <param name="user">用户信息</param>
     /// <returns>token</returns>
-    public string CreateToken(User user)
+    public string GenerateAccessToken(User user)
     {
         var jwtOptions = _options.Value;
 
@@ -48,6 +51,8 @@ public class JwtServices : IJwtServices
             new(JwtRegisteredClaimNames.Sub, user.Id),
             new(JwtRegisteredClaimNames.Name, user.UserName),
             new("nick", user.NickName),
+            new("tenantId", user.TenantId),
+            new("orgId", user.OrganizationId)
         };
 
         if (!string.IsNullOrWhiteSpace(user.Avatar))
@@ -77,7 +82,7 @@ public class JwtServices : IJwtServices
             audience: jwtOptions.Audience,
             claims: claims,
             notBefore: DateTime.Now,
-            expires: DateTime.Now.AddMinutes(jwtOptions.Expires),
+            expires: DateTime.Now.AddMinutes(jwtOptions.AccessTokenExpirationInMinutes),
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
         );
         var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
@@ -87,9 +92,59 @@ public class JwtServices : IJwtServices
     /// <summary>
     /// 解析并验证 JWT Token
     /// </summary>
-    /// <param name="token">JWT Token 字符串</param>
+    /// <param name="accesstoken">JWT Token 字符串</param>
     /// <returns>ClaimsPrincipal 或 null（验证失败）</returns>
-    public ClaimsPrincipal? ParseToken(string token)
+    public ClaimsPrincipal? ValidateAccessToken(string accesstoken)
+    {
+        return ValidateToken(accesstoken);
+    }
+
+    /// <summary>
+    /// 生成刷新Token
+    /// </summary>
+    /// <param name="user">用户信息</param>
+    /// <returns>刷新Token</returns>
+
+    public string GenerateRefreshToken(User user)
+    {
+        var jwtOptions = _options.Value;
+
+        var claims = new List<Claim>
+        {
+            new(JwtRegisteredClaimNames.Sub, user.Id),
+            new("tenantId", user.TenantId),
+            new("orgId", user.OrganizationId),
+            new("ref", "ref")
+        };
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Secret));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        var token = new JwtSecurityToken(
+            issuer: jwtOptions.Issuer, 
+            audience: jwtOptions.Audience,
+            claims: claims,
+            expires: DateTime.UtcNow.AddDays(jwtOptions.RefreshTokenExpirationInDays),
+            signingCredentials: creds);
+
+        return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    /// <summary>
+    /// 验证 Refresh Token (也是一个 JWT 验证)
+    /// </summary>
+    /// <param name="refreshToken">刷新token</param>
+    /// <returns>ClaimsPrincipal 或 null（验证失败）</returns>
+    public ClaimsPrincipal? ValidateRefreshToken(string refreshToken)
+    {
+        var claimsPrincipal =  ValidateToken(refreshToken);
+        return claimsPrincipal?.FindFirst("ref")?.Value == "ref" ? claimsPrincipal : null;
+    }
+
+    /// <summary>
+    /// 验证token 
+    /// </summary>
+    /// <param name="token">token</param>
+    /// <returns>ClaimsPrincipal?</returns>
+    private ClaimsPrincipal? ValidateToken(string token)
     {
         var jwtOptions = _options.Value;
 
@@ -101,12 +156,13 @@ public class JwtServices : IJwtServices
             var validationParameters = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = key,
                 ValidateIssuer = true,
-                ValidIssuer = jwtOptions.Issuer,
                 ValidateAudience = true,
+                ValidateLifetime = true,    // 确保验证过期时间
+                IssuerSigningKey = key,
+                ValidIssuer = jwtOptions.Issuer,
                 ValidAudience = jwtOptions.Audience,
-                ClockSkew = TimeSpan.Zero // 不允许时间偏差
+                ClockSkew = TimeSpan.FromMinutes(5) // 允许时间偏差(5分钟)
             };
 
             // 验证 Token 并获取主体

@@ -11,6 +11,8 @@ public class User
     /// <param name="id">ID（必填）</param>
     /// <param name="userName">用户名（必填）</param>
     /// <param name="nickName">昵称（必填）</param>
+    /// <param name="tenantId">租户Id（必填）</param>
+    /// <param name="organizationId">机构Id（必填）</param>
     /// <param name="avatar">头像</param>
     /// <param name="email">邮箱</param>
     /// <param name="phone">手机</param>
@@ -20,6 +22,8 @@ public class User
         string id,
         string userName,
         string nickName,
+        string tenantId,
+        string organizationId,
         string? avatar = null,
         string? email = null,
         string? phone = null,
@@ -29,6 +33,8 @@ public class User
         Id = id;
         UserName = userName;
         NickName = nickName;
+        TenantId = tenantId;
+        OrganizationId = organizationId;
         Avatar = avatar;
         Email = email;
         Phone = phone;
@@ -49,7 +55,17 @@ public class User
     /// <summary>
     /// 昵称
     /// </summary>
-    public string NickName { get; private init; } 
+    public string NickName { get; private init; }
+
+    /// <summary>
+    /// 租户Id
+    /// </summary>
+    public string TenantId { get; private init; }
+    
+    /// <summary>
+    /// 机构Id
+    /// </summary>
+    public string OrganizationId { get; private init; }
 
     /// <summary>
     /// 头像
