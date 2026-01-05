@@ -11,11 +11,13 @@ public abstract class FullCodeDto : IHasNameDto, IHasCodeDto
     /// 名称
     /// </summary>
     [Length(1, 32)]
+    [Required]
     public required string Name { get; init; }
 
     /// <summary>
     /// Code
     /// </summary>
     [Length(1, 32)]
+    [Required]
     public required string Code { get; init; }
 }

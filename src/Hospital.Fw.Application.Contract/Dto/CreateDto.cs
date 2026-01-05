@@ -1,4 +1,6 @@
-﻿namespace Hospital.Fw.Application.Contract.Dto;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
 /// 审计创建
@@ -8,6 +10,7 @@ public class CreateDto : ICreateDto
     /// <summary>
     /// 创建时间
     /// </summary>
+    [Required]
     public DateTime CreateTime { get; set; } = DateTime.Now;
 
     /// <summary>
@@ -23,5 +26,6 @@ public class CreateDto : ICreateDto
     /// <summary>
     /// 是否启用
     /// </summary>
+    [Required]
     public bool IsEnabled { get; set; } = true;
 }

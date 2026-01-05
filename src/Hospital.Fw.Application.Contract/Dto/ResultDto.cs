@@ -1,4 +1,6 @@
-﻿namespace Hospital.Fw.Application.Contract.Dto;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
 /// 响应结果
@@ -44,6 +46,7 @@ public class ResultDto
     /// <summary>
     /// 是否成功
     /// </summary>
+    [Required]
     public bool IsSuc { get; set; }
 
     /// <summary>

@@ -1,4 +1,6 @@
-﻿namespace Hospital.Fw.Application.Contract.Dto;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
 /// 带审计的Dto
@@ -8,11 +10,13 @@ public abstract class FullAuditedDto : IHasCreatorDto, IMayHaveLastModificationD
     /// <summary>
     /// Id
     /// </summary>
+    [Required]
     public required string Id { get; init; }
 
     /// <summary>
     /// 创建时间
     /// </summary>
+    [Required]
     public required DateTime CreateTime { get; init; }
 
     /// <summary>

@@ -1,4 +1,6 @@
-﻿namespace Hospital.Fw.Application.Contract.Dto;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
 /// 分页查询返回对象
@@ -18,6 +20,7 @@ public class PageListDto<T>
     /// <summary>
     /// 总条数
     /// </summary>
+    [Required]
     public int Total { get; set; }
 
     /// <summary>

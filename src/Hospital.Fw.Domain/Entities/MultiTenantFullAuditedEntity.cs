@@ -23,6 +23,6 @@ public abstract class MultiTenantFullAuditedEntity<TKey> : FullAuditedEntity<TKe
     /// <summary>
     /// 组织code
     /// </summary>
-    [SugarColumn(Length = 514, IsNullable = false, ColumnDescription = "组织code")]
+    [SugarColumn(Length = 512, IsNullable = false, ColumnDescription = "组织code")]
     public string OrganizationCode { get; set; } = null!;
 }
