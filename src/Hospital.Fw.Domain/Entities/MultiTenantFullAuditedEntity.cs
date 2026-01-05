@@ -6,7 +6,7 @@ namespace Hospital.Fw.Domain.Entities;
 /// <summary>
 /// 多租户审计类
 /// </summary>
-public abstract class MultiTenantFullAuditedEntity : FullAuditedEntity<string>, IMultiTenantEntity
+public abstract class MultiTenantFullAuditedEntity<TKey> : FullAuditedEntity<TKey>, IMultiTenantEntity
 {
     /// <summary>
     /// 租户Id
