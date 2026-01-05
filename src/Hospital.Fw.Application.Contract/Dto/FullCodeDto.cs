@@ -5,7 +5,7 @@ namespace Hospital.Fw.Application.Contract.Dto;
 /// <summary>
 /// 带编码的通用DTO
 /// </summary>
-public abstract class FullCodeDto : IHasNameDto, IHasCodeDto
+public abstract class FullCodeDto : EntityDto, IHasNameDto, IHasCodeDto
 {
     /// <summary>
     /// 名称

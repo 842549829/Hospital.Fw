@@ -5,7 +5,7 @@ namespace Hospital.Fw.Application.Contract.Dto;
 /// <summary>
 /// 带审计的Dto
 /// </summary>
-public abstract class FullAuditedDto : IHasCreatorDto, IMayHaveLastModificationDto, IEntityDto<string>
+public abstract class FullAuditedDto : EntityDto, IHasCreatorDto, IMayHaveLastModificationDto, IEntityDto<string>
 {
     /// <summary>
     /// Id

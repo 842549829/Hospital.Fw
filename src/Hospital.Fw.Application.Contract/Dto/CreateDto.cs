@@ -5,7 +5,7 @@ namespace Hospital.Fw.Application.Contract.Dto;
 /// <summary>
 /// 审计创建
 /// </summary>
-public class CreateDto : ICreateDto
+public class CreateDto : EntityDto, ICreateDto
 {
     /// <summary>
     /// 创建时间

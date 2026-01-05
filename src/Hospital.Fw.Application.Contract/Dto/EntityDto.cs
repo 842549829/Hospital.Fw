@@ -8,7 +8,7 @@ public class EntityDto<TKey> : EntityDto, IEntityDto<TKey>
     public TKey Id { get; init; } = default!;
 }
 
-public class EntityDto : IEntityDto;
+public abstract class EntityDto : IEntityDto;
 
 public interface IEntityDto;
 

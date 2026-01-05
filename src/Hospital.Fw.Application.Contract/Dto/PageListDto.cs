@@ -6,7 +6,7 @@ namespace Hospital.Fw.Application.Contract.Dto;
 /// 分页查询返回对象
 /// </summary>
 [Serializable]
-public class PageListDto<T>
+public class PageListDto<T> : EntityDto
 {
     /// <summary>
     /// 构造函数

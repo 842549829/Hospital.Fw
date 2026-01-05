@@ -30,7 +30,7 @@ public class ResultDto<T> : ResultDto
 /// <summary>
 /// 相应结果
 /// </summary>
-public class ResultDto
+public class ResultDto : EntityDto
 {
     /// <summary>
     /// 构造函数
