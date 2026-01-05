@@ -1,12 +1,12 @@
 ﻿namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
-/// 带编码的Dto
+/// 删除标记
 /// </summary>
-public interface IHasCodeDto : IEntityDto
+public interface ISoftDeleteDto
 {
     /// <summary>
-    /// Code
+    /// 是否删除
     /// </summary>
-    public string Code { get; set; }
+    public bool IsDeleted { get; set; }
 }

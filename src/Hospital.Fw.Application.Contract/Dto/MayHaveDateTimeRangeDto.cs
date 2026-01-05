@@ -8,10 +8,10 @@ public abstract class MayHaveDateTimeLength : PageInput, IMayHaveDateTimeLength
     /// <summary>
     /// 开始时间
     /// </summary>
-    public DateTime? StartTime { get; init; }
+    public DateTime? StartTime { get; set; }
 
     /// <summary>
     /// 结束时间
     /// </summary>
-    public DateTime? EndTime { get; init; }
+    public DateTime? EndTime { get; set; }
 }

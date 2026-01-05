@@ -11,5 +11,5 @@ public abstract class GetListInput : PageInput, IGetListInput
     /// 筛选
     /// </summary>
     [MaxLength(32)]
-    public string? Filter { get; init; }
+    public string? Filter { get; set; }
 }

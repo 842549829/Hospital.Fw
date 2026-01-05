@@ -8,5 +8,5 @@ public interface IHasSortDto : IEntityDto
     /// <summary>
     /// 排序
     /// </summary>
-    public int Sort { get; init; } 
+    public int Sort { get; set; } 
 }

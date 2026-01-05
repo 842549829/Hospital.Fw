@@ -8,5 +8,5 @@ public interface IHasRhFactorDto : IEntityDto
     /// <summary>
     /// RH因子
     /// </summary>
-    public string RhFactor { get; init; }
+    public string RhFactor { get; set; }
 }

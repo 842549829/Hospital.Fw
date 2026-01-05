@@ -3,30 +3,20 @@
 /// <summary>
 /// 审计字段
 /// </summary>
-public class AuditedDto : DeleteDto
+public abstract class AuditedDto : CreationAuditedDto, IMayHaveLastModificationDto
 {
     /// <summary>
-    /// 名称
+    /// 最后修改Id
     /// </summary>
-    public string Name { get; set; } = null!;
+    public string? LastModificationId { get; set; }
 
     /// <summary>
-    /// 编码
+    /// 最后修改人
     /// </summary>
-    public string Code { get; set; } = null!;
+    public string? LastModificationName { get; set; }
 
     /// <summary>
-    /// 备注
+    /// 最后修改时间
     /// </summary>
-    public string? Remark { get; set; }
-
-    /// <summary>
-    /// 拼音
-    /// </summary>
-    public string? Pinyin { get; set; }
-
-    /// <summary>
-    /// 拼音首字母
-    /// </summary>
-    public string? PinyinFirstLetters { get; set; }
+    public DateTime? LastModificationTime { get; set; }
 }

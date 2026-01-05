@@ -8,5 +8,5 @@ public interface IMayHaveHisCode : IEntityDto
     /// <summary>
     /// his系统编码
     /// </summary>
-    public string? HisCode { get; init; }
+    public string? HisCode { get; set; }
 }

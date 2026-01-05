@@ -8,5 +8,5 @@ public interface IMayHaveEnabledDto : IEntityDto
     /// <summary>
     /// 是否启用
     /// </summary>
-    public bool? IsEnabled { get; init; }
+    public bool? IsEnabled { get; set; }
 }

@@ -5,7 +5,7 @@ namespace Hospital.Fw.Application.Contract.Dto;
 /// <summary>
 /// 审计创建
 /// </summary>
-public class CreateDto : EntityDto, ICreateDto
+public abstract class CreateDto : EntityDto, ICreateDto
 {
     /// <summary>
     /// 创建时间
@@ -22,10 +22,4 @@ public class CreateDto : EntityDto, ICreateDto
     /// 创建人Id
     /// </summary>
     public string? CreatorId { get; set; }
-
-    /// <summary>
-    /// 是否启用
-    /// </summary>
-    [Required]
-    public bool IsEnabled { get; set; } = true;
 }

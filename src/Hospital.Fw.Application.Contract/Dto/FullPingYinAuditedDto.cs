@@ -8,10 +8,10 @@ public abstract class FullPingYinAuditedDto : FullAuditedDto, IMayHavePinyinDto
     /// <summary>
     /// 拼音
     /// </summary>
-    public string? Pinyin { get; init; }
+    public string? Pinyin { get; set; }
 
     /// <summary>
     /// 拼音首字母
     /// </summary>
-    public string? PinyinFirstLetters { get; init; }
+    public string? PinyinFirstLetters { get; set; }
 }

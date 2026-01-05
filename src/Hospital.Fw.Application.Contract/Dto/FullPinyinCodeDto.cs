@@ -3,14 +3,13 @@
 namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
-/// 主键
+/// 带启用排序的审计实体
 /// </summary>
-public abstract class IdDto : EntityDto<string>
+public abstract class FullPinyinCodeDto : FullPinyinDto, IHasCodeDto
 {
     /// <summary>
-    /// 主键
+    /// Code
     /// </summary>
-    [Length(32, 32)]
     [Required]
-    public new required string Id { get; set; }
+    public string Code { get; set; } = null!;
 }

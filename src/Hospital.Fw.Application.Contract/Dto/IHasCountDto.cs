@@ -8,5 +8,5 @@ public interface IHasCountDto : IEntityDto
     /// <summary>
     /// 数量
     /// </summary>
-    public decimal Count { get; init; }
+    public decimal Count { get; set; }
 }

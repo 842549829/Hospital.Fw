@@ -3,7 +3,7 @@
 /// <summary>
 /// 审计编辑
 /// </summary>
-public class ModifyDto : CreateDto, IModifyDto
+public abstract class ModifyDto : CreateDto, IModifyDto
 {
     /// <summary>
     /// 最后修改人Id

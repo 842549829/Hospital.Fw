@@ -8,5 +8,5 @@ public interface IHasNameDto : IEntityDto
     /// <summary>
     /// 名称
     /// </summary>
-    public string Name { get; init; }
+    public string Name { get; set; }
 }

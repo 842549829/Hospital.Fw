@@ -11,5 +11,5 @@ public class RootAuditedDto : DeleteDto, IEntityDto<string>
     /// 主键
     /// </summary>
     [Required]
-    public required string Id { get; init; }
+    public required string Id { get; set; }
 }

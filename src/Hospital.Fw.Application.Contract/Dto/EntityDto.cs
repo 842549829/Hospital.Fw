@@ -2,18 +2,32 @@
 
 namespace Hospital.Fw.Application.Contract.Dto;
 
-public class EntityDto<TKey> : EntityDto, IEntityDto<TKey>
+/// <summary>
+/// 实体
+/// </summary>
+/// <typeparam name="TKey">TKey</typeparam>
+public abstract class EntityDto<TKey> : EntityDto, IEntityDto<TKey>
 {
     [Required]
-    public TKey Id { get; init; } = default!;
+    public TKey Id { get; set; } = default!;
 }
 
+/// <summary>
+/// 实体
+/// </summary>
 public abstract class EntityDto : IEntityDto;
 
+/// <summary>
+/// 实体
+/// </summary>
 public interface IEntityDto;
 
+/// <summary>
+/// 实体
+/// </summary>
+/// <typeparam name="TKey"></typeparam>
 public interface IEntityDto<TKey>
 {
     [Required]
-    public TKey Id { get; init; }
+    public TKey Id { get; set; }
 }

@@ -8,5 +8,5 @@ public interface IGetListInput : IEntityDto
     /// <summary>
     /// 筛选
     /// </summary>
-    public string? Filter { get; init; }
+    public string? Filter { get; set; }
 }

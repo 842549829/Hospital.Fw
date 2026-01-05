@@ -8,10 +8,10 @@ public abstract class MustDateTimeRange : PageInput
     /// <summary>
     /// 开始时间
     /// </summary>
-    public required DateTime StartTime { get; init; }
+    public required DateTime StartTime { get; set; }
     
     /// <summary>
     /// 结束时间
     /// </summary>
-    public required DateTime EndTime { get; init; }
+    public required DateTime EndTime { get; set; }
 }

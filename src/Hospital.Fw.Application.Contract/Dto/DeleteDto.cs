@@ -3,7 +3,7 @@
 /// <summary>
 /// 审计删除
 /// </summary>
-public class DeleteDto : ModifyDto, IDeleteDto
+public abstract class DeleteDto : ModifyDto, IDeleteDto
 {
     /// <summary>
     /// 删除人Id

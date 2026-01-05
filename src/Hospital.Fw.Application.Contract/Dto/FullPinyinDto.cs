@@ -1,14 +1,14 @@
 ﻿namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
-/// 可有拼音
+/// 全拼
 /// </summary>
-public interface IMayHavePinyinDto : IEntityDto
+public abstract class FullPinyinDto : FullNameDto, IMayHavePinyinDto
 {
     /// <summary>
     /// 拼音
     /// </summary>
-    public string? Pinyin { get; set; } 
+    public string? Pinyin { get; set; }
 
     /// <summary>
     /// 拼音首字母

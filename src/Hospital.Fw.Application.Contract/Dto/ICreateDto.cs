@@ -19,9 +19,4 @@ public interface ICreateDto
     /// 创建人Id
     /// </summary>
     public string? CreatorId { get; set; }
-
-    /// <summary>
-    /// 是否启用
-    /// </summary>
-    public bool IsEnabled { get; set; }
 }

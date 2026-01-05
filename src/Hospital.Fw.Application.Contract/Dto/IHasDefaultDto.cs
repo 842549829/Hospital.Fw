@@ -8,5 +8,5 @@ public interface IHasDefaultDto : IEntityDto
     /// <summary>
     /// 是否默认
     /// </summary>
-    public bool IsDefault { get; init; }
+    public bool IsDefault { get; set; }
 }

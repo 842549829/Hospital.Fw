@@ -1,9 +1,9 @@
 ﻿namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
-/// 创建者
+///  创建审计
 /// </summary>
-public interface IHasCreatorDto : IEntityDto
+public abstract class CreationAuditedDto : EntityDto<string>, ICreateDto
 {
     /// <summary>
     /// 创建时间
@@ -11,12 +11,12 @@ public interface IHasCreatorDto : IEntityDto
     public DateTime CreateTime { get; set; }
 
     /// <summary>
-    /// 创建者
+    /// 创建人
     /// </summary>
     public string? CreatorName { get; set; }
 
     /// <summary>
-    /// 创建者Id
+    /// 创建人Id
     /// </summary>
     public string? CreatorId { get; set; }
 }

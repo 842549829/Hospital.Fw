@@ -12,12 +12,12 @@ public abstract class FullCodeDto : EntityDto, IHasNameDto, IHasCodeDto
     /// </summary>
     [Length(1, 32)]
     [Required]
-    public required string Name { get; init; }
+    public required string Name { get; set; }
 
     /// <summary>
     /// Code
     /// </summary>
     [Length(1, 32)]
     [Required]
-    public required string Code { get; init; }
+    public required string Code { get; set; }
 }

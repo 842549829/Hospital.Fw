@@ -8,5 +8,5 @@ public interface IHasPriceDto : IEntityDto
     /// <summary>
     ///  价格
     /// </summary>
-    public decimal Price { get; init; }
+    public decimal Price { get; set; }
 }

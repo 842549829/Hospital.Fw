@@ -5,7 +5,7 @@ namespace Hospital.Fw.Application.Contract.Dto;
 /// <summary>
 /// 多租户
 /// </summary>
-public abstract class MultiTenantFullAuditedDto : FullEnableSortAuditedDto, IMultiTenantDto
+public abstract class MultiTenantFullAuditedDto : FullAuditedDto, IMultiTenantDto
 {
     /// <summary>
     /// 组织code

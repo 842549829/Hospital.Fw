@@ -1,46 +1,27 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Hospital.Fw.Application.Contract.Dto;
+﻿namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
 /// 带审计的Dto
 /// </summary>
-public abstract class FullAuditedDto : EntityDto, IHasCreatorDto, IMayHaveLastModificationDto, IEntityDto<string>
+public abstract class FullAuditedDto : AuditedDto, IMayHaveDeletionDto
 {
     /// <summary>
-    /// Id
+    /// 是否删除
     /// </summary>
-    [Required]
-    public required string Id { get; init; }
+    public bool IsDeleted { get; set; }
 
     /// <summary>
-    /// 创建时间
+    /// 删除人
     /// </summary>
-    [Required]
-    public required DateTime CreateTime { get; init; }
+    public string? DeletionName { get; set; }
 
     /// <summary>
-    /// 创建者
+    /// 删除时间
     /// </summary>
-    public string? CreatorName { get; init; }
+    public DateTime? DeletionTime { get; set; }
 
     /// <summary>
-    /// 创建者Id
+    /// 删除人标识
     /// </summary>
-    public string? CreatorId { get; init; }
-
-    /// <summary>
-    /// 最后修改Id
-    /// </summary>
-    public string? LastModificationId { get; init; }
-
-    /// <summary>
-    /// 最后修改人
-    /// </summary>
-    public string? LastModificationName { get; init; }
-
-    /// <summary>
-    /// 最后修改时间
-    /// </summary>
-    public DateTime? LastModificationTime { get; init; }
+    public string? DeletionId { get; set; }
 }

@@ -8,15 +8,15 @@ public interface IMayHaveLastModificationDto : IEntityDto
     /// <summary>
     /// 最后修改Id
     /// </summary>
-    public string? LastModificationId { get; init; }
+    public string? LastModificationId { get; set; }
 
     /// <summary>
     /// 最后修改人
     /// </summary>
-    public string? LastModificationName { get; init; }
+    public string? LastModificationName { get; set; }
 
     /// <summary>
     /// 最后修改时间
     /// </summary>
-    public DateTime? LastModificationTime { get; init; }
+    public DateTime? LastModificationTime { get; set; }
 }

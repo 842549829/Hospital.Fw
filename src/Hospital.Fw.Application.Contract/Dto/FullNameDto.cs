@@ -3,14 +3,13 @@
 namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
-/// 主键
+/// 带名称的通用DTO
 /// </summary>
-public abstract class IdDto : EntityDto<string>
+public abstract class FullNameDto : MultiTenantFullAuditedDto, IHasNameDto
 {
     /// <summary>
-    /// 主键
+    /// 名称
     /// </summary>
-    [Length(32, 32)]
     [Required]
-    public new required string Id { get; set; }
+    public string Name { get; set; } = null!;
 }
