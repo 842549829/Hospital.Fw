@@ -1,8 +1,8 @@
-﻿namespace Hospital.Fw.Application.Contract;
+﻿namespace Hospital.Fw.Application.Contract.Dto;
 
 public class EntityDto<TKey> : EntityDto, IEntityDto<TKey>
 {
-    public TKey Id { get; set; } = default!;
+    public TKey Id { get; init; } = default!;
 }
 
 public class EntityDto : IEntityDto;
@@ -11,5 +11,5 @@ public interface IEntityDto;
 
 public interface IEntityDto<TKey>
 {
-    public TKey Id { get; set; }
+    public TKey Id { get; init; }
 }

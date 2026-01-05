@@ -49,4 +49,14 @@ public interface ICurrentUser
     /// 权限
     /// </summary>
     public string[]? Permissions { get; set; }
+
+    /// <summary>
+    /// 租户Id
+    /// </summary>
+    public string TenantId { get; set; }
+
+    /// <summary>
+    /// 机构Id
+    /// </summary>
+    public string OrganizationId { get; set; }
 }

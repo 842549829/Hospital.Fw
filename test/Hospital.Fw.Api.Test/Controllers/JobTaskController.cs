@@ -1,6 +1,6 @@
 ﻿using Hospital.Fw.Api.Test.Dto;
 using Hospital.Fw.Api.Test.Entities;
-using Hospital.Fw.Application.Contract;
+using Hospital.Fw.Application.Contract.Dto;
 using Hospital.Fw.Automatic.Api.HttpApi.Controllers;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-﻿namespace Hospital.Fw.Application.Contract;
+﻿namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
 /// ICreateDto

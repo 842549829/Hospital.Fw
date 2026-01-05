@@ -1,4 +1,4 @@
-﻿using Hospital.Fw.Application.Contract;
+﻿using Hospital.Fw.Application.Contract.Dto;
 using Hospital.Fw.Automatic.Api.Application.Contract;
 using Hospital.Fw.HttpApi.Controllers;
 using Microsoft.AspNetCore.Mvc;

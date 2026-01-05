@@ -1,4 +1,4 @@
-﻿using Hospital.Fw.Application.Contract;
+﻿using Hospital.Fw.Application.Contract.Dto;
 
 namespace Hospital.Fw.Api.Test.Dto;
 

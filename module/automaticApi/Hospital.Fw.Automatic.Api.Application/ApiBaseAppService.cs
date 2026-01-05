@@ -1,6 +1,6 @@
 ﻿
 using Hospital.Fw.Application;
-using Hospital.Fw.Application.Contract;
+using Hospital.Fw.Application.Contract.Dto;
 using Hospital.Fw.Automatic.Api.Application.Contract;
 using Hospital.Fw.Domain;
 using Hospital.Fw.Domain.Entities;

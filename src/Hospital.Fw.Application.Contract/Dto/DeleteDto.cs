@@ -1,6 +1,9 @@
-﻿namespace Hospital.Fw.Application.Contract;
+﻿namespace Hospital.Fw.Application.Contract.Dto;
 
-public interface IDeleteDto
+/// <summary>
+/// 审计删除
+/// </summary>
+public class DeleteDto : ModifyDto, IDeleteDto
 {
     /// <summary>
     /// 删除人Id

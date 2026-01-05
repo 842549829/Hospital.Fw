@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Hospital.Fw.Application.Contract;
+namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
 /// 分页

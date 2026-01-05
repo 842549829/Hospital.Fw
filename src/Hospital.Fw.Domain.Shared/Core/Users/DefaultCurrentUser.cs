@@ -5,7 +5,7 @@ using System.Security.Claims;
 namespace Hospital.Fw.Domain.Shared.Core.Users;
 
 /// <summary>
-/// 默认用户
+/// 当前用户
 /// </summary>
 public class DefaultCurrentUser : ICurrentUser, IScopedDependency
 {
@@ -48,12 +48,24 @@ public class DefaultCurrentUser : ICurrentUser, IScopedDependency
         var nickClaim = user.FindFirst("nick");
         if (nickClaim != null)
         {
-            Name = nickClaim.Value;
+            NickName = nickClaim.Value;
         }
         var avatarClaim = user.FindFirst("avatar");
         if (avatarClaim != null)
         {
             Avatar = avatarClaim.Value;
+        }
+
+        var tenantClaim = user.FindFirst("tenantId");
+        if (tenantClaim != null)
+        {
+            TenantId = tenantClaim.Value;
+        }
+
+        var organizationClaim = user.FindFirst("orgId");
+        if (organizationClaim != null)
+        {
+            OrganizationId = organizationClaim.Value;
         }
     }
 
@@ -76,6 +88,11 @@ public class DefaultCurrentUser : ICurrentUser, IScopedDependency
     /// 用户名称
     /// </summary>
     public string Name { get; set; } = null!;
+
+    /// <summary>
+    /// 昵称
+    /// </summary>
+    public string NickName { get; set; } = null!;
 
     /// <summary>
     /// 头像
@@ -101,4 +118,14 @@ public class DefaultCurrentUser : ICurrentUser, IScopedDependency
     /// 权限
     /// </summary>
     public string[]? Permissions { get; set; }
+
+    /// <summary>
+    /// 租户Id
+    /// </summary>
+    public string TenantId { get; set; } = null!;
+
+    /// <summary>
+    /// 机构Id
+    /// </summary>
+    public string OrganizationId { get; set; } = null!;
 }
