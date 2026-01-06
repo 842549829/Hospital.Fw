@@ -5,4 +5,8 @@
 /// </summary>
 public abstract class UpdateFullConventionalAuditedDto : CreateFullConventionalAuditedDto, IEntityDto<string>
 {
+    /// <summary>
+    /// 主键
+    /// </summary>
+    public string Id { get; set; } = null!;
 }
