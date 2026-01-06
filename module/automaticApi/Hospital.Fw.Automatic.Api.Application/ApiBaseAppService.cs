@@ -7,6 +7,7 @@ using Hospital.Fw.Domain.Entities;
 using Hospital.Fw.Domain.Shared.Core.Exception;
 using Hospital.Fw.Domain.Shared.Core.Users;
 using MapsterMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using SqlSugar;
 
@@ -40,6 +41,7 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
     /// </summary>
     /// <param name="input">创建</param>
     /// <returns>结果</returns>
+    [HttpPost("create")]
     public virtual async Task<bool> CreateAsync(TCreateDto input)
     {
         var mapper = ServiceProvider.GetRequiredService<IMapper>();
@@ -54,6 +56,7 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
     /// </summary>
     /// <param name="input">修改</param>
     /// <returns>结果</returns>
+    [HttpPut("update")]
     public virtual async Task<bool> UpdateAsync(TUpdateDto input)
     {
         var mapper = ServiceProvider.GetRequiredService<IMapper>();
@@ -68,6 +71,7 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
     /// </summary>
     /// <param name="id">删除</param>
     /// <returns>结果</returns>
+    [HttpDelete("delete")]
     public virtual async Task<bool> DeleteAsync(TKey id)
     {
         if (id == null)
@@ -128,6 +132,7 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
     /// </summary>
     /// <param name="input">条件</param>
     /// <returns>结果</returns>
+    [HttpGet("list")]
     public virtual async Task<PageListDto<TGetListDto>> GetListAsync(TGetListInput input)
     {
         var db = GetSqlSugarClient(ConfigId);
@@ -175,6 +180,7 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
     /// </summary>
     /// <param name="id">id</param>
     /// <returns>结果</returns>
+    [HttpGet("detail")]
     public virtual async Task<TDto> GetAsync(TKey id)
     {
         var mapper = ServiceProvider.GetRequiredService<IMapper>();
