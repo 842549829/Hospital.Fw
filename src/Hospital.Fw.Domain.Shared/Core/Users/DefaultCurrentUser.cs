@@ -56,16 +56,22 @@ public class DefaultCurrentUser : ICurrentUser, IScopedDependency
             Avatar = avatarClaim.Value;
         }
 
-        var tenantClaim = user.FindFirst("tenantId");
+        var tenantClaim = user.FindFirst("tenant");
         if (tenantClaim != null)
         {
             TenantId = tenantClaim.Value;
         }
 
-        var organizationClaim = user.FindFirst("orgId");
-        if (organizationClaim != null)
+        var organizationIdClaim = user.FindFirst("orgid");
+        if (organizationIdClaim != null)
         {
-            OrganizationId = organizationClaim.Value;
+            OrganizationId = organizationIdClaim.Value;
+        }
+
+        var organizationCodeClaim = user.FindFirst("orgcode");
+        if (organizationCodeClaim != null)
+        {
+            OrganizationCode = organizationCodeClaim.Value;
         }
     }
 
@@ -128,4 +134,9 @@ public class DefaultCurrentUser : ICurrentUser, IScopedDependency
     /// 机构Id
     /// </summary>
     public string OrganizationId { get; set; } = null!;
+
+    /// <summary>
+    /// 机构Code
+    /// </summary>
+    public string OrganizationCode { get; set; } = null!;
 }

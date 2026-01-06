@@ -64,4 +64,9 @@ public interface ICurrentUser
     /// 机构Id
     /// </summary>
     public string OrganizationId { get; set; }
+
+    /// <summary>
+    /// 机构Code
+    /// </summary>
+    public string OrganizationCode { get; set; }
 }

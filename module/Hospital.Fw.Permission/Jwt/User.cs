@@ -13,6 +13,7 @@ public class User
     /// <param name="nickName">昵称（必填）</param>
     /// <param name="tenantId">租户Id（必填）</param>
     /// <param name="organizationId">机构Id（必填）</param>
+    /// <param name="organizationCode">机构Code（必填）</param>
     /// <param name="avatar">头像</param>
     /// <param name="email">邮箱</param>
     /// <param name="phone">手机</param>
@@ -24,6 +25,7 @@ public class User
         string nickName,
         string tenantId,
         string organizationId,
+        string organizationCode,
         string? avatar = null,
         string? email = null,
         string? phone = null,
@@ -35,12 +37,18 @@ public class User
         NickName = nickName;
         TenantId = tenantId;
         OrganizationId = organizationId;
+        OrganizationCode = organizationCode;
         Avatar = avatar;
         Email = email;
         Phone = phone;
         Roles = roles;
         Permissions = permissions;
     }
+
+    /// <summary>
+    /// 机构Code
+    /// </summary>
+    public string OrganizationCode { get; private set; }
 
     /// <summary>
     /// 用户Id

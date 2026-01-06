@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Runtime;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Text;
 
 namespace Hospital.Fw.Permission.Jwt;
@@ -51,8 +48,10 @@ public class JwtServices : IJwtServices
             new(JwtRegisteredClaimNames.Sub, user.Id),
             new(JwtRegisteredClaimNames.Name, user.UserName),
             new("nick", user.NickName),
-            new("tenantId", user.TenantId),
-            new("orgId", user.OrganizationId)
+            new("tenant", user.TenantId),
+            new("orgid", user.OrganizationId),
+            new("orgcode", user.OrganizationCode)
+
         };
 
         if (!string.IsNullOrWhiteSpace(user.Avatar))
@@ -112,8 +111,9 @@ public class JwtServices : IJwtServices
         var claims = new List<Claim>
         {
             new(JwtRegisteredClaimNames.Sub, user.Id),
-            new("tenantId", user.TenantId),
-            new("orgId", user.OrganizationId),
+            new("tenant", user.TenantId),
+            new("orgid", user.OrganizationId),
+            new("orgcode", user.OrganizationCode),
             new("ref", "ref")
         };
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Secret));
