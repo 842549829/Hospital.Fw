@@ -8,6 +8,9 @@ namespace Hospital.Fw.Application.Contract.Dto;
 /// <typeparam name="TKey">TKey</typeparam>
 public abstract class EntityDto<TKey> : EntityDto, IEntityDto<TKey>
 {
+    /// <summary>
+    /// 主键Id
+    /// </summary>
     [Required]
     public TKey Id { get; set; } = default!;
 }

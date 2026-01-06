@@ -3,13 +3,13 @@
 namespace Hospital.Fw.Application.Contract.Dto;
 
 /// <summary>
-/// 带Code的审计实体
+/// 带名称的审计实体-创建
 /// </summary>
-public abstract class FullPinyinCodeDto : FullPinyinDto, IHasCodeDto
+public abstract class CreateFullNameDto : EntityDto<string>, IHasNameDto
 {
     /// <summary>
-    /// Code
+    /// 名称
     /// </summary>
     [Required]
-    public string Code { get; set; } = null!;
+    public string Name { get; set; } = null!;
 }
