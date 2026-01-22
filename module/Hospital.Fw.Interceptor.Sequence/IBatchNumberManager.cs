@@ -22,7 +22,7 @@ public interface IBatchNumberManager : ISequenceManager
     /// <param name="number">数量</param>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns>补零后的字符串</returns>
-    public async Task<List<string>> PadNumberWithZerosAsync(string name, int number, int length = 3, CancellationToken cancellationToken = default)
+    public async Task<List<string>> PadNumberWithZerosAsync(string name, int number, int length, CancellationToken cancellationToken = default)
     {
         // 1. 获取数字序列
         var numbers = await GetNextSequenceAsync(name, number, cancellationToken);
