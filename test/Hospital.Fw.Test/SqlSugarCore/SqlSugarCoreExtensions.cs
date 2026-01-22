@@ -71,7 +71,7 @@ namespace Hospital.Fw.Test.SqlSugarCore
                         new ConnectionConfig
                         {
                             ConfigId = SqlSugarCoreDbConst.Sequence,
-                            DbType = DbType.SqlServer,
+                            DbType = DbType.MySql,
                             ConnectionString = configuration.GetConnectionString(SqlSugarCoreDbConst.Sequence),
                             IsAutoCloseConnection = true,
                             ConfigureExternalServices = configureExternalServices,
