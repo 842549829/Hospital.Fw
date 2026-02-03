@@ -10,6 +10,7 @@ using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using SqlSugar;
+using System.Reflection;
 
 namespace Hospital.Fw.Automatic.Api.Application;
 
@@ -23,7 +24,7 @@ namespace Hospital.Fw.Automatic.Api.Application;
 /// <typeparam name="TUpdateDto">修改</typeparam>
 /// <typeparam name="TGetListInput">列表输入</typeparam>
 /// <typeparam name="TGetListDto">列表输出</typeparam>
-public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpdateDto,  TGetListInput, TGetListDto> : BaseAppService, IApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpdateDto,  TGetListInput, TGetListDto>
+public abstract class ApiBaseAppService<TEntity, TKey, TDto, TCreateDto, TUpdateDto, TGetListInput, TGetListDto> : BaseAppService, IApiBaseAppService<TEntity, TKey, TDto, TCreateDto, TUpdateDto, TGetListInput, TGetListDto>
     where TEntity : class, IEntity<TKey>, new()
     where TDto : EntityDto
     where TCreateDto : EntityDto
@@ -85,8 +86,15 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
         if (typeof(TEntity).GetInterface(nameof(ISoftDelete)) != null)
         {
             // --- 执行软删除 ---
+            // 获取TEntity特性 
+
+            var columnName = GetColumnNameFromReflection(nameof(ISoftDelete.IsDeleted), typeof(TEntity));
+            if (string.IsNullOrEmpty(columnName))
+            {
+                throw new InvalidOperationException($"No property found on type {typeof(TEntity).Name} with [SugarColumn(ColumnName = \"IsDeleted\")]. Cannot perform soft delete.");
+            }
             var updateable = db.Updateable<TEntity>()
-                               .SetColumns(it => (it as ISoftDelete)!.IsDeleted == true); // 必须设置 IsDeleted 为 true
+                               .SetColumns(columnName, true); 
 
             // --- 动态添加可选的删除信息 ---
             // 1. 检查并设置 DeletionId (如果实现了 IMayHaveDeletionId)
@@ -95,25 +103,27 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
                 // 这里需要提供具体的 DeletionId 值，例如从当前用户上下文获取
                 // 示例：使用被删除记录的ID作为删除ID，实际应用中应替换为当前用户ID
                 var currentUserId = GetCurrentUser().Id;
-                updateable.SetColumns(it => ((IMayHaveDeletionId)it).DeletionId == (string?)currentUserId);
+                var deletionId = GetColumnNameFromReflection(nameof(IMayHaveDeletionId.DeletionId), typeof(TEntity));
+                updateable.SetColumns(deletionId, currentUserId);
             }
 
             // 2. 检查并设置 DeletionTime (如果实现了 IMayHaveDeletionTime)
             if (typeof(TEntity).GetInterface(nameof(IMayHaveDeletionTime)) != null)
             {
-                updateable.SetColumns(it => ((it as IMayHaveDeletionTime)!).DeletionTime == DateTime.Now);
+                var deletionTime = GetColumnNameFromReflection(nameof(IMayHaveDeletionTime.DeletionTime), typeof(TEntity));
+                updateable.SetColumns(deletionTime, DateTime.Now);
             }
 
             // 3. 检查并设置 DeletionName (如果实现了 IMayHaveDeletionName)
             if (typeof(TEntity).GetInterface(nameof(IMayHaveDeletionName)) != null)
             {
                 var currentUserDisplayName = GetCurrentUser().Name;
-                // 这里需要提供具体的 DeletionName 值，例如从当前用户上下文获取
-                updateable.SetColumns(it => ((it as IMayHaveDeletionName)!).DeletionName == currentUserDisplayName);
+                var deletionName = GetColumnNameFromReflection(nameof(IMayHaveDeletionName.DeletionName), typeof(TEntity));
+                updateable.SetColumns(deletionName, currentUserDisplayName);
             }
 
             // 完成 Updateable 配置，添加 WHERE 条件
-            updateable.Where(it =>  it.Id!.Equals(id)); // 假设主键属性名为 Id
+            updateable.Where(it => it.Id!.Equals(id)); // 假设主键属性名为 Id
 
             // 执行更新命令
             await updateable.ExecuteCommandAsync("实际操作影响行数与期望影响行数不一致");
@@ -125,6 +135,26 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
             await deleteable.ExecuteCommandAsync("实际操作影响行数与期望影响行数不一致");
         }
         return true; // 操作成功
+
+        /// <summary>
+        /// 通过反射获取 ISoftDelete 字段的数据库列名
+        /// </summary>
+        /// <param name="field">字段</param>
+        /// <param name="entityType">实体类型</param>
+        /// <returns>数据库列名</returns>
+        static string? GetColumnNameFromReflection(string field, Type entityType)
+        {
+            // 使用 GetProperties 获取所有属性，然后用 FirstOrDefault 查找
+            var prop = entityType.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                                 .FirstOrDefault(p => p.Name.Equals(field, StringComparison.OrdinalIgnoreCase));
+            var sugarAttr = prop?.GetCustomAttribute<SugarColumn>();
+            if (sugarAttr != null)
+            {
+                // 如果特性上指定了 ColumnName，则返回它；否则返回属性名转换为下划线命名
+                return sugarAttr.ColumnName ?? UtilMethods.ToUnderLine(prop?.Name);
+            }
+            return null; // 未找到
+        }
     }
 
     /// <summary>
@@ -185,7 +215,7 @@ public abstract class ApiBaseAppService<TEntity,  TKey, TDto,  TCreateDto,  TUpd
     {
         var mapper = ServiceProvider.GetRequiredService<IMapper>();
         var db = GetSqlSugarClient(ConfigId);
-        var  entity = await db.Queryable<TEntity>()
+        var entity = await db.Queryable<TEntity>()
             .Where(it => it.Id!.Equals(id))
             .FirstAsync();
         var dto = mapper.Map<TDto>(entity);
